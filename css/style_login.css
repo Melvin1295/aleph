@@ -1,0 +1,151 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-size: 16px;
+}
+
+a{
+	text-decoration:none;
+}
+
+/* Login de CRM */
+.bodLogin{
+	background-image: url("../images/bg-abogados-lines.jpg");
+	color: #555555;
+}
+.frmLogin{
+	background-color: #DFDFDF;
+	margin-top: 120px;
+}
+.frmLogin .cabFrmLogin{
+	background-color: #000168;
+	text-align: center;
+}
+.frmLogin .cabFrmLogin .titLogin{
+	color: white;
+	font-size: 1.5em;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;	
+}
+.frmLogin .bodFrmLogin{
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+.frmLogin .bodFrmLogin .subTitLogin{
+	text-align: center;
+	font-size: 1.1em;
+}
+.menLogin{
+	text-align: center;
+	font-size: 1em;
+	color: #42415e;
+}
+.frmLogin .bodFrmLogin .form-group input{
+	border: 0px;
+	border-radius: 0px;
+}
+.frmLogin .bodFrmLogin .form-group select{
+	background-color: #F6F6F6;
+	border: 1px;
+	border-radius: 0px;
+	color: #9F99A8;
+}
+
+@media screen and (max-width: 800px){
+	.frmLogin
+	{
+		margin-top: 50px;
+	}
+	.titLogin
+	{
+		text-align: center;
+		font-size: 1.6em;
+		color: #d19213;
+	}
+	.menLogin
+	{
+		text-align: center;
+		font-size: 1em;
+		color: #42415e;
+	}
+}
+/* Fin de Login*/
+
+/*Generalidades*/
+.center{
+	text-align: center;
+}
+
+.prinContent{
+	background-color: #688AAD;
+	padding: 18px 0 8px 0;
+	margin-bottom: 30px; 
+}
+
+.titUsuario{
+	color: #FBAB33;
+}
+
+.textRigth{
+	text-align: right;
+	padding-top: 14px;
+}
+/*Fin Generalidades*/
+
+/*Botones*/
+
+.btnLogin{
+	background-color: #D9D9D9;
+	border: 0px;
+	color: #555555;
+	font-size: 0.9em;
+	height: 32px;
+	width: 100px;
+}
+
+.btnLogin:hover{
+	background-color: #000168;
+	font-weight: bold;
+	color: white;
+}
+
+
+/* Contenido del Sistema */
+
+.titContenido{
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.cueContenido{
+	background-color: #BDBDBD;
+}
+
+
+/* Tablas */
+.tdcueText
+{
+	background-color: #f5f5f5;
+	color: #404040;
+	border: 1px solid white;
+	text-align: center;
+}
+.tdcueIcon
+{
+	background-color: #D9D9D9;
+	border: 1px solid white;
+	text-align: center;
+}
+.tdcabNormal
+{
+	background-color: #7A7976;
+	color: #FFFFFF;
+	border: 1px solid white;
+	text-align: center;
+}
