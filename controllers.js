@@ -6,12 +6,12 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', functi
     $scope.codigo_Departamento='01';
   
     function empleados(){
-        $http.get('http://localhost/Cyl/php/?a=listar').then(function(r){
+        $http.get('http://localhost/aleph/php/?a=listar').then(function(r){
             $scope.model = r.data;
         });
     }
     function departamentos(){
-        $http.get('http://localhost/Cyl/php/?a=departamentos').then(function(r){
+        $http.get('http://localhost/aleph/php/?a=departamentos').then(function(r){
             $scope.departamentos = r.data;
         });
     }
@@ -19,7 +19,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', functi
     
     $scope.retirar = function(id){
         if(confirm('Esta seguro de realizar esta acción?')){
-            $http.get('http://localhost/Cyl/php/?a=eliminar&id=' + id).then(function(r){
+            $http.get('http://localhost/aleph/php/?a=eliminar&id=' + id).then(function(r){
                 empleados();
             });
         }
@@ -36,7 +36,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', functi
             FechaNacimiento: $scope.FechaNacimiento
         };
         
-        $http.post('http://localhost/Cyl/php/?a=registrar', model).then(function(r){
+        $http.post('http://localhost/aleph/php/?a=registrar', model).then(function(r){
             empleados();
             
             $scope.Correo = null;
