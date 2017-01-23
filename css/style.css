@@ -1,0 +1,603 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-size: 16px;
+	padding-bottom: 40px;
+}
+
+a{
+	text-decoration:none;
+}
+
+span{
+	padding-right: 2px;
+}
+
+.btn img{
+	width: 20px;
+}
+
+.form-inline a:hover{
+	text-decoration: none;
+}
+
+/*Vista RX-DENTAL*/
+.frmFormatos{
+	background-color: #DFDFDF;
+}
+.titFormatos{
+	font-size: 20px;
+	font-family: Tahoma;
+	text-align: center;
+	padding-top: 20px;
+}
+
+
+/* Alineaciones de texto generales */
+.aliRight{
+	text-align: right;
+}
+.aliCenter{
+	text-align: center;
+}
+.aliLeft{
+	text-align: left;
+}
+/* Fin de alineaciones generales */
+
+.btnCaptcha{
+	background-color: black;
+	border: none;
+	padding-top: 2px;
+}
+
+.captcha{
+	text-align: center;
+	background-color: black;
+	padding: 0px;
+}
+
+.activador{
+	font-weight: bold;
+	border-bottom: 3px solid #428BCA;
+	font-size: 13px;
+}
+
+/* Estilos para modulos del sistema */
+
+.parPanel{
+	margin-top: 50px;
+}
+.modTitulo{
+	color: #323145;
+}
+#modRRHH{
+	background-color: #00abd1;
+}
+
+#modComercilizacion{
+	background-color: #b04d4d;
+}
+
+#modLogistica{
+	background-color: #757175;
+}
+
+#modAteCliente{
+	background-color: #64bd79;
+}
+
+#modIT{
+	background-color: #d5fa41;
+}
+
+#modProduccion{
+	background-color: #d2addb;
+}
+
+#modFinanzas{
+	background-color: #cdd9e6;
+}
+
+#modID{
+	background-color: #f7b488;
+}
+
+#modConfiguracion{
+	background-color: #f7e25b;
+}
+/* Fin de estilos de modulos del sistema */
+
+
+.footer{
+	color: white;
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.fooRecord{
+	text-align: center;
+	margin-top: 5px;
+	padding-bottom: 5px;
+}
+.fooTitRecord{
+	color: white;
+}
+
+
+
+/* Login de CRM */
+.bodLogin{
+	background-color: #F6F6F6;
+	color: #555555;
+}
+.frmLogin{
+	background-color: #EEEEEE;
+	margin-top: 120px;
+}
+.frmLogin .cabFrmLogin{
+	background-color: #FEFEFE;
+	text-align: center;
+}
+.frmLogin .cabFrmLogin .titLogin{
+	color: #555555;
+	font-size: 1.5em;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;	
+}
+.frmLogin .bodFrmLogin{
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+.frmLogin .bodFrmLogin .subTitLogin{
+	text-align: center;
+	font-size: 1.1em;
+}
+.menLogin{
+	text-align: center;
+	font-size: 1em;
+	color: #42415e;
+}
+.frmLogin .bodFrmLogin .form-group input{
+	border: 0px;
+	border-radius: 0px;
+}
+.frmLogin .bodFrmLogin .form-group select{
+	background-color: #F6F6F6;
+	border: 1px;
+	border-radius: 0px;
+	color: #9F99A8;
+}
+.frmLogin .bodFrmLogin .btnLogin{
+	background-color: #D9D9D9;
+	border: 0px;
+	color: #555555;
+	font-size: 0.9em;
+	font-weight: bold;
+	height: 35px;
+	width: 80px;
+}
+.frmLogin .bodFrmLogin .btnLogin:hover{
+	background-color: #DD9F13;
+}
+
+@media screen and (max-width: 800px){
+	.frmLogin
+	{
+		margin-top: 50px;
+	}
+	.titLogin
+	{
+		text-align: center;
+		font-size: 1.6em;
+		color: #d19213;
+	}
+	.menLogin
+	{
+		text-align: center;
+		font-size: 1em;
+		color: #42415e;
+	}
+}
+/* Fin de Login*/
+
+
+/* User de CRM */
+.heaUser{
+	height: 20%;
+}
+.bodUser{
+	background-color: white;
+}
+.fooUser{
+	background-color: #949494;
+}
+
+.fonUser{
+	background-color: #f6f6f6;
+}
+.titWecUser{
+	color: #888888;
+	font-size: 1.35em;
+	font-weight: bold;
+	letter-spacing: 1.5px;
+	text-align: left;
+	padding-top: 12px;
+}
+
+
+
+.titOptUser{
+	color: #2c2e61;
+	font-size: 1.2em;
+}
+.desUser{
+	background-color: #e6e61e;
+	color: #7a7976;
+	font-size: 1em;
+	font-weight: bold;
+	letter-spacing: 1px;
+	padding-top: 5px;
+	text-align: right;
+}
+.desComUser{
+	text-align: left;
+}
+.desSeaUser{
+	color: #7a7976;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+/* Fin de User*/
+
+/* Cliente_real de CMR */
+.fonCliReal{
+	background-color: #f6f6f6;
+}
+.titLegend{
+	color: #404042;
+	padding-top: 5px;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.titLegCheckbox{
+	margin-top: 7px;
+	font-weight: bold;
+	text-align: left;
+}
+.titCustomer{
+	color: white;
+	background-color: #690303;
+	padding: 3px 7px 3px 7px;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 4px;
+}
+.botCliReal{
+	color: white;
+	background-color: #999326;
+	padding: 0px 7px 0px 7px;
+	font-size: .9em;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 4px;
+}
+#check{
+	margin-left: 4px;
+}
+#check2{
+	margin-left: 4px;
+}
+#check3{
+	margin-left: 4px;
+}
+/* Fin Cliente_real */
+
+
+
+.colTabUser{
+	background-color: #e6e61e;
+	color: #7a7976;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+.rowTabUser{
+	background-color: #949494;
+	color: white;
+	font-size: 1em;
+}
+.center{
+	text-align: center;
+}
+
+.btngroup{
+	text-align: center;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user{
+	text-align: right;
+}
+
+.separador{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+legend{
+	background-color: #1494cf;
+	color: #fcfcfc;
+}
+
+.labLegend{
+	color: #fcfcfc;
+	margin-left: 20px;
+}
+
+
+
+.titRegistro{
+	color: #404042;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+.titRegistro2{
+	color: #404042;
+	margin-top: 12px;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+.panDefaul{
+	margin-top: 20px;
+}
+.panSeaFiles{
+	margin-top: 10px;
+}
+
+/* Style of menu*/
+
+.menu{
+	list-style: none;
+	line-height: 42px;
+	margin: 2em auto;
+	padding-left: 0;
+	width: 17em;
+}
+.menu a{
+	color: #ddd;
+	display: block;
+	padding-left: .2em;
+	text-transform: uppercase;
+	--webkit-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
+}
+.menu a:hover{
+	margin-left: 1em;
+	color: #8f8f00;
+	font-weight: bold;
+	text-decoration: none;
+}
+.menu li{
+	box-shadow: 3px 0 rgba(255,255,255,.2) inset;
+	margin-bottom: 5px;
+	padding-left: .8em;
+	--webkit-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
+}
+.menu li:hover{
+	box-shadow: 17em 0 rgba(255,255,255,.2) inset;
+}
+.menu li:nth-child(2) a{
+	background-position: 0 -42px;
+}
+.menu li:nth-child(3) a{
+	background-position: 0 -84px;
+}
+.menu li:nth-child(4) a{
+	background-position: 0 -126px;
+}
+.menu li:nth-child(5) a{
+	background-position: 0 -168px;
+}
+.menu li:last-child a{
+	background-position: 0 -210px;
+}
+
+nav{
+	background: rgba(0,0,0,.8);
+	padding-right: .25em;
+	padding-top: 3em;
+	position: absolute;
+	left: -18em;
+	top: 0;
+	transition: all .3s;
+	z-index: 20;
+	height: 100%;
+}
+nav.mostrar{
+	left: 0;
+}
+#mostrar_nav{
+	cursor: pointer;	
+	z-index: 30;
+	position: relative;
+}
+
+/* Estilo de botones */
+.btn-primero{
+	font-size: 15px;
+	background-color: #ffffff;
+	color: #6d6d6d;
+	border-radius: 2px;
+	border: 1px solid #d8d8d8;
+	width: 50px;
+	height: 26px;
+}
+.btn-primero:hover{
+	color: #242424;
+	background-color: #f3f3f3;
+	border: 1px solid #969696;
+}
+.btn-lead{
+	font-size: 14px;
+	background-color: #d94a38;
+	color: white;
+	border-radius: 2px;
+	border: 1px solid #c6322a;
+	width: 120px;
+	height: 26px;
+}
+.btn-lead:hover{
+	background-color: #bd362f;
+	color: white;
+	border: 1px solid #802420;
+}
+.btn-save{
+	font-size: 14px;
+	background-color: #d94a38;
+	color: white;
+	border-radius: 2px;
+	border: 1px solid #c6322a;
+	width: 80px;
+	height: 26px;
+}
+.btn-save:hover{
+	background-color: #bd362f;
+	color: white;
+	border: 1px solid #802420;
+}
+.btn-customer{
+	font-size: 14px;
+	background-color: #d94a38;
+	color: white;
+	border-radius: 2px;
+	border: 1px solid #c6322a;
+	width: 140px;
+	height: 26px;
+}
+.btn-customer:hover{
+	background-color: #bd362f;
+	color: white;
+	border: 1px solid #802420;
+}
+.btn-opportunity{
+	font-size: 14px;
+	background-color: #d94a38;
+	color: white;
+	border-radius: 2px;
+	border: 1px solid #c6322a;
+	width: 160px;
+	height: 26px;
+}
+.btn-opportunity:hover{
+	background-color: #bd362f;
+	color: white;
+	border: 1px solid #802420;
+}
+.btn-action{
+	font-size: 14px;
+	background-color: #ffffff;
+	color: #6d6d6d;
+	border-radius: 2px;
+	border: 1px solid #d8d8d8;
+	width: 90px;
+	height: 26px;
+}
+.btn-action:hover{
+	color: #242424;
+	background-color: #f3f3f3;
+	border: 1px solid #969696;
+}
+
+.btn-gmail{
+	background-color: #fff;
+	border: 1px solid #969696;
+	border-radius: 2px;
+	color: #6d6d6d;
+	font-size: 14px;
+	height: 26px;
+}
+
+.btn-gmail:hover{
+	background-color: #E5E5E5;
+	color: #333333;
+}
+
+
+/* Fin de estilo de botones */
+
+/* Estilo de tablas */
+.tdcabeza
+{
+	background-color: #7A7976;
+	color: #FFFFFF;
+	border: 1px solid white;
+	text-align: center;
+	font-weight: bold;
+}
+.tdcabNormal
+{
+	background-color: #7A7976;
+	color: #FFFFFF;
+	border: 1px solid white;
+	text-align: center;
+}
+.letCadNormal{
+	margin-top: 15px;
+}
+.tdcuerpo
+{
+	background-color: #f5f5f5;
+	color: #404040;
+	border: 1px solid white;
+	text-align: center;
+}
+.tdcueRigth
+{
+	background-color: #f5f5f5;
+	color: #404040;
+	border: 1px solid white;
+}
+.tabLink
+{
+	color: #5F9FDE;
+	font-weight: bold;
+}
+.tabLink:hover
+{
+	text-decoration: none;
+	color: #386da3;
+	font-weight: bold;
+}
+
+/* Fin de estilo de tablas */
+
+@media screen and (max-width: 800px){
+	
+	body{
+		padding-bottom: 60px;
+	}
+	.titLegend{
+		text-align: left;
+		font-size: 1.1em;
+	}
+	
+}

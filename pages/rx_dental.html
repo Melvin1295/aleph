@@ -1,0 +1,39 @@
+<form>
+  <div class="container-fluid">
+    <div class="row"> 
+      <div class="col-sm-4"></div><!-- Brinda el espacio para colocar el formulario en el centro -->
+      <!--Div ancho de fomulario-->
+        <div class="col-sm-12 frmFormatos">
+          <div class="row">
+            <div class="cabFrmLogin">
+              <p class="titFormatos">FORMATO PARA EL CONTROL DE CALIDAD A EQUIPO DE RAYOS X DENTAL</p>
+            </div>
+          </div>
+          <!-- Cuerpo del formulario -->
+          <div class="col-sm-12 bodFrmLogin">
+            <div class="col-sm-4 form-group">
+              <input type="text" class="form-control" ng-model="documento.nro_informe" placeholder="Informe N°">
+            </div>
+
+            <div class="col-sm-4 form-group">
+              <input type="password" class="form-control" ng-model="documento.nro_certificado" placeholder="Certificado N°">
+            </div>
+
+            <div class="col-sm-4 form-group">
+              <input type="password" class="form-control" ng-model="documento.fecha" placeholder="Fecha">
+            </div>
+
+            <!-- Boton Login de formulario -->
+            <div class="center">
+              <button id="btn" ng-click="prueba()" class="btnLogin">
+                Login <span class="fa fa-angle-double-right"></span>
+              </button>
+            </div>
+            <!-- Fin de boton Login de formulario -->
+          </div>
+          <!-- Fin cuerpo del formulario -->
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
