@@ -1,32 +1,25 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es" ng-app="appDemo">
 <head>
-  <meta charset="utf-8">
+   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Aleph Group</title>
   <!--Estilos propios-->
-  <link rel="stylesheet" type="text/css" href="css/style_login.css">
-  <!--Framework BootStrap-->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <!--Favicon-->
-  <link rel="icon" type="image/png" href="images/favicon/favicon.ico">
-  <!--Estilos para Iconos-->
-  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-  <!--Fuentes de Google-->
-  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-  <!-- jQuery (necesario para Bootstrap JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!--JavaScript incluido en el sistema-->
-  <script src="js/bootstrap.min.js"></script>
-</head>
+  <link rel="stylesheet" type="text/css" href="css/style_login.css">  <!--Framework BootStrap-->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">  <!--Favicon-->
+  <link rel="icon" type="image/png" href="images/favicon/favicon.ico">  <!--Estilos para Iconos-->
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">  <!--Fuentes de Google-->
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'> 
 
+</head>
 <body class="bodLogin">
 
-  <div class="container-fluid">
+    <div class="container" ng-controller="EmpleadoListadoCtrl">
+        <div class="container-fluid">
     <div class="row">
 
-      <form class="form-horizontal" action="procesar.php?modo=login" method="POST" id="formulario">
+      <form class="form-horizontal" method="POST" id="formulario">
       
           <div class="col-sm-4"></div><!-- Brinda el espacio para colocar el formulario en el centro -->
 
@@ -45,11 +38,11 @@
                 </div>
 
                 <div class="form-group">
-                  <input type="text" class="form-control" name="user" placeholder="Usuario">
+                  <input type="text" class="form-control" ng-model="user" placeholder="Usuario">
                 </div>
 
                 <div class="form-group">
-                  <input type="password" class="form-control" name="passw" placeholder="Contraseña">
+                  <input type="password" class="form-control" ng-model="passw" placeholder="Contraseña">
                 </div>
                 <!-- Input oculto para identificar el formulario -->
                 <div class="form-group">
@@ -72,7 +65,15 @@
 
     </div>
   </div>
+    </div>
+       
 
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="login/app.js"></script>
+    <script src="login/controllers.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </body>
 
 </html>

@@ -4,6 +4,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', functi
     //empleados();
     departamentos();   
     $scope.codigo_Departamento='01';
+    $scope.person=[];
   
     function empleados(){
         $http.get('http://localhost/aleph/php/?a=listar').then(function(r){

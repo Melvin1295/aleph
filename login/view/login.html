@@ -1,0 +1,37 @@
+ <div class="container">
+                <div class="row">
+                            <div class="col-xs-12">
+
+                                <h1 class="jumbotron">Mantenimiento de empleados</h1>
+                                <div class="col-sm-12 bodFrmLogin">
+                                
+                                <div class="center" style="margin-bottom: 20px">
+                                  <img src="images/logocyl.png" width="150">
+                                </div>
+
+                                <div class="form-group">
+                                  <input type="text" class="form-control" ng-model="user" placeholder="Usuario">
+                                  {{user}}
+                                </div>
+
+                                <div class="form-group">
+                                  <input type="password" class="form-control" n-model="passw" placeholder="Contraseña">
+                                </div>
+                                <!-- Input oculto para identificar el formulario -->
+                                <div class="form-group">
+                                  <input type="hidden" name="login" value="1">
+                                </div>
+                                <!-- Fin de input oculto -->
+
+                                <!-- Boton Login de formulario -->
+                                <div class="center">
+                                  <button id="btn" ng-click="login()" class="btnLogin">
+                                    Login <span class="fa fa-angle-double-right"></span>
+                                  </button>
+                                </div>
+                                <!-- Fin de boton Login de formulario -->
+                              </div>
+
+                            </div>
+                  </div>
+    </div>
