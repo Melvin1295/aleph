@@ -6,8 +6,8 @@ var app = angular.module('appDemo', [
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/lista', {
-        templateUrl: 'pages/listado.html',
+      when('/', {
+        templateUrl: 'pages/rx_dental.html',
         controller: 'EmpleadoListadoCtrl'
       }).
       when('/ver/:id', {

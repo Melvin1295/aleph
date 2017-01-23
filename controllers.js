@@ -1,6 +1,14 @@
 var empleadoControllers = angular.module('empleadoControllers', []);
 
-empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', function ($scope, $http) {
+empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', '$log'
+    ,function ($scope, $http, $log) {
+    
+    $scope.documento=[];
+
+    $scope.prueba = function(){
+        $log.log($scope.documento);
+    }
+
     //empleados();
     departamentos();   
     $scope.codigo_Departamento='01';
