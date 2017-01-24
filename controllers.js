@@ -3,17 +3,24 @@ var empleadoControllers = angular.module('empleadoControllers', []);
 empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', '$log'
     ,function ($scope, $http, $log) {
     
-    $scope.documento=[];
-
+    $scope.documento={};
+    $scope.formato={};
+    $scope.formato1={};
+    $scope.descri_equipo={};
+    $scope.descri_equipo2={};
+    $scope.equipo_tipo={};
+    $scope.cliente={};
+    $scope.equipo={};
+    $scope.formatoGeneral=[];
     $scope.prueba = function(){
         $log.log($scope.documento);
     }
 
     //empleados();
-    departamentos();   
+    /*departamentos();   
     $scope.codigo_Departamento='01';
     $scope.person=[];
-  
+  */
     function empleados(){
         $http.get('http://localhost/aleph/php/?a=listar').then(function(r){
             $scope.model = r.data;
@@ -35,24 +42,27 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', '$log'
     }
     
     $scope.registrar = function(){
+    $scope.equipo.descripcion="hola mundo";
+    /*$scope.formatoGeneral.formato=$scope.formato;
+    $scope.formatoGeneral.formato1=$scope.formato1;
+    $scope.formatoGeneral.descri_equipo=$scope.descri_equipo;
+    $scope.formatoGeneral.descri_equipo2=$scope.descri_equipo2;
+    $scope.formatoGeneral.equipo_tipo=$scope.equipo_tipo;
+    $scope.formatoGeneral.cliente=$scope.cliente;*/
         var model = {
-            Correo: $scope.Correo,
-            Nombre: $scope.Nombre,
-            Apellido: $scope.Apellido,
-            Sexo: $scope.Sexo,
-            Sueldo: $scope.Sueldo,
-            Profesion_id: $scope.Profesion_id,
-            FechaNacimiento: $scope.FechaNacimiento
+          formato: $scope.formato,
+          formato1: $scope.formato1,
+          descri_equipo: $scope.descri_equipo,
+          descri_equipo2:$scope.descri_equipo2,
+          equipo_tipo: $scope.equipo_tipo,
+          cliente: $scope.cliente,
+          equipo: $scope.equipo
         };
-        
-        $http.post('http://localhost/aleph/php/?a=registrar', model).then(function(r){
-            empleados();
-            
-            $scope.Correo = null;
-            $scope.Nombre = null;
-            $scope.Apellido = null;
-            $scope.Sueldo = null;
-            $scope.FechaNacimiento = null;
+        $http.post('http://localhost/aleph/php/?a=registrar',  model).then(function(r){
+            if(r==true){
+                alert("registrado Correctamente!!");
+            }
+           
         });
     }
 }]);

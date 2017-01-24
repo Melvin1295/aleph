@@ -3,7 +3,8 @@
 // Cargamos Vendor
 require __DIR__ . '/vendor/autoload.php';
 
-$pdo = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
+$pdo = new PDO('mysql:host=localhost;dbname=aleph;charset=utf8', 'root', '');
+
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
 
@@ -23,6 +24,10 @@ switch($action) {
     case 'obtener':
         header('Content-Type: application/json');
         print_r(json_encode(obtener($fluent, $_GET['id'])));
+        break;
+    case 'id':
+        header('Content-Type: application/json');
+        print_r(json_encode(getid($fluent)));
         break;
     case 'registrar':
         header('Content-Type: application/json');
@@ -50,6 +55,23 @@ function listar($fluent)
          ->orderBy("id DESC")
          ->fetchAll();
 }
+function getid($fluent)
+{
+    $result=$fluent
+         ->from('equipo')
+         ->select('max(equipo.id) as id')
+         ->fetch();
+   return $result->id;
+}
+function getidcliente($fluent)
+{
+    $result=$fluent
+         ->from('datos_cliente')
+         ->select('max(datos_cliente.id) as id')
+         ->fetch();
+   return $result->id;
+}
+
 
 function obtener($fluent, $id)
 {
@@ -68,9 +90,30 @@ function eliminar($fluent, $id)
 
 function registrar($fluent, $data)
 {
-    $data['FechaRegistro'] = date('Y-m-d');
-    $fluent->insertInto('empleado', $data)
+    //$data['FechaRegistro'] = date('Y-m-d');
+    //$data->equipo['descripcion']='Equipo Modelo Ejemplo';   
+   $fluent->insertInto('equipo', $data['equipo'])
              ->execute();
+
     
+    $ideuipo=getid($fluent);
+    $descripcionEquipo=$data['descri_equipo'];
+    $descripcionEquipo2=$data['descri_equipo2'];
+    $descripcionEquipo['equipo_id']=$ideuipo;
+    $descripcionEquipo2['equipo_id']=$ideuipo;
+    var_dump($descripcionEquipo);
+    $fluent->insertInto('datos_cliente', $data['cliente'])
+             ->execute();
+    $idCliente=getidcliente($fluent);
+    $formato=$data['formato'];
+    $formato['equipo_id']=$ideuipo;
+    $formato['datos_cliente_id']=$idCliente;
+    $formato['fecha']=date('Y-m-d');
+    $fluent->insertInto('descri_producto', $descripcionEquipo)
+             ->execute();
+     $fluent->insertInto('descri_producto', $descripcionEquipo2)
+             ->execute();
+      $fluent->insertInto('formato_control', $formato)
+             ->execute();
     return true;
 }
