@@ -10,8 +10,12 @@ app.config(['$routeProvider',
         templateUrl: 'pages/rx_dental.html',
         controller: 'EmpleadoListadoCtrl'
       }).
-      when('/ver/:id', {
-        templateUrl: 'partials/ver.html',
+      when('/home', {
+        templateUrl: 'pages/home.html',
+        controller: 'EmpleadoListadoCtrl'
+      }).
+      when('/edit/:id', {
+        templateUrl: 'pages/acerca.html',
         controller: 'EmpleadoVerCtrl'
       }).
       otherwise({

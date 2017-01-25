@@ -1,4 +1,38 @@
-<div class="jumbotron text-center">  
-  <h1>Acerca De</h1> 
-  <p>{{ message }}</p>
-</div>
+<form>
+  <div class="container-fluid">
+    <div class="row" class="text-align: center;"> 
+          <table class="table table-bordered">
+              <thead>
+              	 <th style="width:30px;">#</th>
+              	 <th>N° Informe</th>
+              	 <th>N° Certificado</th>
+              	 <th>Fecha</th>
+              	 <th>Obserbacion</th>
+              	 <th>Usuario</th>
+              	 <th style="width:40px;">Acciones</th>
+              </thead>
+              <tbody>
+              	<tr ng-repeat="item in listaFormato">
+              		<td>{{index+1}}</td>
+              		<td>{{item.nro_informe}}</td>
+              		<td>{{item.nro_certificado}}</td>
+              		<td>{{item.fecha}}</td>
+              		<td>{{item.observacion}}</td>
+              		<td>{{item.realizado_por}}</td>
+              		 <td>
+               <a class="btn btn-default btn-xs" href="#/edit/{{item.id}}">
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                </a>
+                <button class="btn btn-danger btn-xs" ng-click="obtenerFormato(12)">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </button>
+            </td>
+              	</tr>
+              </tbody>
+          </table>
+          <button class="btn btn-danger btn-xs" ng-click="obtenerFormato(12)">
+                   obtener
+                </button>
+    </div>
+  </div>
+</form>

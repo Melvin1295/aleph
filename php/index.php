@@ -19,15 +19,27 @@ switch($action) {
         break;
     case 'listar':
         header('Content-Type: application/json');
-        print_r(json_encode(listar($fluent)));
+        print_r(json_encode(listar1($fluent)));
         break;
     case 'obtener':
         header('Content-Type: application/json');
         print_r(json_encode(obtener($fluent, $_GET['id'])));
         break;
+     case 'obtenerformato':
+        header('Content-Type: application/json');
+        print_r(json_encode(obtenerformato($fluent, $_GET['id'])));
+        break;
+    case 'obtenerdetalle':
+        header('Content-Type: application/json');
+        print_r(json_encode(obtenerdetalle($fluent, $_GET['id'])));
+        break;
+    case 'obtenerdetalle2':
+        header('Content-Type: application/json');
+        print_r(json_encode(obtenerdetalle2($fluent, $_GET['id'])));
+        break;
     case 'id':
         header('Content-Type: application/json');
-        print_r(json_encode(getid($fluent)));
+        print_r(json_encode(getidcliente($fluent)));
         break;
     case 'registrar':
         header('Content-Type: application/json');
@@ -52,6 +64,14 @@ function listar($fluent)
     return $fluent
          ->from('empleado')
          ->select('empleado.*, profesion.Nombre as Profesion')
+         ->orderBy("id DESC")
+         ->fetchAll();
+}
+function listar1($fluent)
+{
+    return $fluent
+         ->from('formato_control')
+         ->select('formato_control.*')
          ->orderBy("id DESC")
          ->fetchAll();
 }
@@ -80,6 +100,29 @@ function obtener($fluent, $id)
                               ->fetch();
 }
 
+
+function obtenerformato($fluent, $id)
+{
+    return $fluent->from('formato_control', $id)
+                  ->select('formato_control.*')
+                              ->fetch();
+}
+function obtenerdetalle($fluent, $id)
+{
+      return $fluent->from('descri_producto')
+                  ->select('descri_producto.*')
+                  ->where('descri_producto.equipo_id',$id)
+                  ->orderBy("id ")
+                              ->fetch();
+}
+function obtenerdetalle2($fluent, $id)
+{
+    return $fluent->from('descri_producto')
+                  ->select('descri_producto.*')
+                  ->where('descri_producto.equipo_id',$id)
+                  ->orderBy("id desc")
+                              ->fetch();
+}
 function eliminar($fluent, $id)
 {
     $fluent->deleteFrom('empleado', $id)
@@ -93,25 +136,27 @@ function registrar($fluent, $data)
     //$data['FechaRegistro'] = date('Y-m-d');
     //$data->equipo['descripcion']='Equipo Modelo Ejemplo';   
    $fluent->insertInto('equipo', $data['equipo'])
-             ->execute();
-
-    
+             ->execute();    
     $ideuipo=getid($fluent);
+
     $descripcionEquipo=$data['descri_equipo'];
     $descripcionEquipo2=$data['descri_equipo2'];
     $descripcionEquipo['equipo_id']=$ideuipo;
     $descripcionEquipo2['equipo_id']=$ideuipo;
-    var_dump($descripcionEquipo);
+
+    var_dump($data['formato']);
     $fluent->insertInto('datos_cliente', $data['cliente'])
              ->execute();
+
     $idCliente=getidcliente($fluent);
+
     $formato=$data['formato'];
     $formato['equipo_id']=$ideuipo;
     $formato['datos_cliente_id']=$idCliente;
     $formato['fecha']=date('Y-m-d');
     $fluent->insertInto('descri_producto', $descripcionEquipo)
              ->execute();
-     $fluent->insertInto('descri_producto', $descripcionEquipo2)
+    $fluent->insertInto('descri_producto', $descripcionEquipo2)
              ->execute();
       $fluent->insertInto('formato_control', $formato)
              ->execute();
