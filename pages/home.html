@@ -1,7 +1,42 @@
 <form>
+  <div class="container-fluid" >
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 fonUser">
+                <div class="col-sm-5 col-xs-12">
+                  <div class="row">
+                    <div class="col-sm-10 col-xs-10"><!-- Botón Menu Principal -->
+                      <div id="mostrar_nav">
+                        <p class="titWecUser">
+                          <span class="fa fa-home"></span> Welcome 
+                        </p>
+                      </div>
+                    </div><!-- Fin botón menu principal -->
+                  </div>
+                </div>
+            </div>           
+            <div class="col-sm-12 col-xs-12 desUser">
+                <form class="form-inline">
+                  <div class="form-group col-sm-4 desComUser">
+                    <label><span class="fa fa-building-o"></span></label>
+                    <label>Aleph Group</label>
+                  </div>
+                  <div class="form-group col-sm-4">
+                    <label><span class="fa fa-bookmark"></span></label>
+                    <label>Usuario:{{usuario.apellidos}} </label>
+                    <label></label>
+                  </div>
+                </form>
+            </div>
+        </div>
+    
+    </div>
   <div class="container-fluid">
+   <div class="row">
+      <a href="#/rx_dental" class="btn btn-success" style="margin-top:5px; margin-left:5px;">Crear Nuevo</a>
+   </div><br>
     <div class="row" class="text-align: center;"> 
-          <table class="table table-bordered">
+    
+          <table class="table table-bordered ">
               <thead>
               	 <th style="width:30px;">#</th>
               	 <th>N° Informe</th>
@@ -9,30 +44,46 @@
               	 <th>Fecha</th>
               	 <th>Obserbacion</th>
               	 <th>Usuario</th>
-              	 <th style="width:40px;">Acciones</th>
+              	 <th>Cliente</th>
+              	 <th style="width:100px;">Acciones</th>
               </thead>
               <tbody>
-              	<tr ng-repeat="item in listaFormato">
+              	<tr ng-repeat="item in listaFormato.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
               		<td>{{index+1}}</td>
               		<td>{{item.nro_informe}}</td>
               		<td>{{item.nro_certificado}}</td>
               		<td>{{item.fecha}}</td>
               		<td>{{item.observacion}}</td>
               		<td>{{item.realizado_por}}</td>
-              		 <td>
-               <a class="btn btn-default btn-xs" href="#/edit/{{item.id}}">
-                    <i class="glyphicon glyphicon-eye-open"></i>
-                </a>
-                <button class="btn btn-danger btn-xs" ng-click="obtenerFormato(12)">
-                    <i class="glyphicon glyphicon-trash"></i>
-                </button>
-            </td>
+              		<td>{{item.razon_social}}
+              		<td style="width:120px;" ng-if="item.estado==1">
+				               <a class="btn btn-warning btn-xs" href="#/edit/{{item.id}}">
+				                    <i class="glyphicon glyphicon-pencil"></i>
+				               </a>
+				                <button class="btn btn-danger btn-xs" ng-click="desactivar(item)">
+				                    Desactivar
+				                </button>
+				    </td>
+				    <td style="width:120px;" ng-if="item.estado==0">
+				               <a class="btn btn-warning btn-xs" href="#/edit/{{item.id}}">
+				                    <i class="glyphicon glyphicon-pencil"></i>
+				               </a>
+				                <button class="btn btn-danger btn-xs" ng-click="desactivar(item)">
+				                    Activar
+				                </button>
+				    </td>
               	</tr>
               </tbody>
           </table>
-          <button class="btn btn-danger btn-xs" ng-click="obtenerFormato(12)">
-                   obtener
-                </button>
+          </div>
+     <div class="row" class="text-align: center;" style="margin-top:-20px;"> 
+        
+        <!--<select ng-model="viewby" ng-change="setItemsPerPage(viewby)" ng-init="setItemsPerPage(5)">
+                 <option value="3">3</option><option value="5">5</option><option value="10">10</option><option>20</option><option>30</option><option>40</option><option>50</option></select> -->
+             <div class="box-footer clearfix">  
+                  <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" items-per-page="itemsPerPage"></pagination>
+              </div>
+    </div>
     </div>
   </div>
 </form>

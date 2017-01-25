@@ -54,12 +54,15 @@ function listar($fluent)
 function loggin($fluent, $username,$clave)
 {
     
-    return $fluent
+     $fluent
          ->from('usuarios')
          ->select('usuarios.id')
          ->where('usuarios.nombre_usuario',$username)
          ->where('usuarios.clave',$clave)   
          ->fetch();
+    session_start();
+    $_SESSION["usuario"]=$username;
+    return true;
 }
 
 function eliminar($fluent, $id)

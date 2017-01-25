@@ -8,9 +8,9 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http','$locat
     $scope.login=function(){   	   
           
             $http.get('http://localhost/aleph/php/login.php/?a=login&username=' + $scope.user+"&clave="+$scope.passw).then(function(r){
-            	 $scope.usuario=r.data;
-                if( $scope.usuario.id != null){ 
-                	$window.location.href="/aleph";
+            	 
+                if( r.data == true){ 
+                	$window.location.href="/aleph/#/";
                 }else{
                 	alert("Error Login !!");
                 }
