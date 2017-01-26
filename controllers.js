@@ -1,7 +1,7 @@
 var empleadoControllers = angular.module('empleadoControllers', []);
 
-empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', '$log','$window'
-    ,function ($scope, $http, $log,$window) {
+empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$http', '$log','$window'
+    ,function ($location,$scope, $http, $log,$window) {
     
     $scope.documento="ejemplo";
     $scope.formato={};
@@ -16,7 +16,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', '$log'
     $scope.viewby = 3; 
     $scope.usuario={};
    
-    $http.get('http://localhost/aleph/php/?a=usuario').then(function(r){
+    $http.get('/aleph/php/?a=usuario').then(function(r){
             $scope.usuario = r.data;
             
             if($scope.usuario.id == null){
@@ -55,13 +55,13 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', '$log'
     $scope.person=[];
   */
     function empleados(){
-        $http.get('http://localhost/aleph/php/?a=listar').then(function(r){
+        $http.get('/aleph/php/?a=listar').then(function(r){
             $scope.model = r.data;
         });
     }
 
     function listas(){
-         $http.get('http://localhost/aleph/php/?a=listar').then(function(r){
+         $http.get('/aleph/php/?a=listar').then(function(r){
             $scope.listaFormato=r.data;
             $scope.viewby = 10;
             $scope.totalItems = $scope.listaFormato.length;
@@ -72,13 +72,13 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', '$log'
         });
     }
     function departamentos(){
-        $http.get('http://localhost/aleph/php/?a=departamentos').then(function(r){
+        $http.get('/aleph/php/?a=departamentos').then(function(r){
            
         });
     }
     $scope.obtenerFormato=function(id){
        
-        $http.get('http://localhost/aleph/php/?a=obtenerformato&id='+id).then(function(r){
+        $http.get('/aleph/php/?a=obtenerformato&id='+id).then(function(r){
             $scope.formato=r.data;
             alert($scope.formato.id);
             $window.location.href="#/edit/"+id;
@@ -88,7 +88,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', '$log'
     
     $scope.retirar = function(id){
         if(confirm('Esta seguro de realizar esta acción?')){
-            $http.get('http://localhost/aleph/php/?a=eliminar&id=' + id).then(function(r){
+            $http.get('/aleph/php/?a=eliminar&id=' + id).then(function(r){
                 empleados();
             });
         }
@@ -104,7 +104,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', '$log'
           cliente: $scope.cliente,
           equipo: $scope.equipo
         };
-        $http.post('http://localhost/aleph/php/?a=registrar', model).then(function(r){            
+        $http.post('/aleph/php/?a=registrar', model).then(function(r){            
                 alert("registrado Correctamente!!");  
                 $window.location.href="#/home";          
            
@@ -115,7 +115,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', '$log'
         var model = {
           formato: row
         };
-        $http.post('http://localhost/aleph/php/?a=desactivar', model).then(function(r){            
+        $http.post('/aleph/php/?a=desactivar', model).then(function(r){            
                 alert("desactivado correctamente!!");  
                           
            listas();
@@ -138,22 +138,22 @@ $scope.setItemsPerPage = function(num) {
 
 empleadoControllers.controller('EmpleadoVerCtrl', ['$scope', '$routeParams', '$http','$window', function ($scope, $routeParams, $http,$window) {
     $scope.formato1={};
-    $http.get('http://localhost/aleph/php/?a=obtenerformato&id=' + $routeParams.id).then(function(r){
+    $http.get('/aleph/php/?a=obtenerformato&id=' + $routeParams.id).then(function(r){
          $scope.formato=r.data;
           $scope.formato.fecha=new Date($scope.formato.fecha);
-          $http.get('http://localhost/aleph/php/?a=obtenercliente&id=' + $scope.formato.datos_cliente_id).then(function(r){
+          $http.get('/aleph/php/?a=obtenercliente&id=' + $scope.formato.datos_cliente_id).then(function(r){
               $scope.cliente=r.data;
           });
-          $http.get('http://localhost/aleph/php/?a=obtenerdetalle&id=' + $scope.formato.equipo_id).then(function(r){
+          $http.get('/aleph/php/?a=obtenerdetalle&id=' + $scope.formato.equipo_id).then(function(r){
               $scope.descri_equipo=r.data;
           });
-          $http.get('http://localhost/aleph/php/?a=obtenerdetalle2&id=' + $scope.formato.equipo_id).then(function(r){
+          $http.get('/aleph/php/?a=obtenerdetalle2&id=' + $scope.formato.equipo_id).then(function(r){
               $scope.descri_equipo2=r.data;
           });
     });
       $scope.usuario={};
    
-    $http.get('http://localhost/aleph/php/?a=usuario').then(function(r){
+    $http.get('/aleph/php/?a=usuario').then(function(r){
             $scope.usuario = r.data;
             
             if($scope.usuario.id == null){
@@ -190,7 +190,7 @@ empleadoControllers.controller('EmpleadoVerCtrl', ['$scope', '$routeParams', '$h
           descri_equipo2:$scope.descri_equipo2,
           cliente: $scope.cliente
         };
-        $http.post('http://localhost/aleph/php/?a=update',  model).then(function(r){            
+        $http.post('/aleph/php/?a=update',  model).then(function(r){            
                 alert("registrado Correctamente!!");            
                 $window.location.href="#/home"; 
         });

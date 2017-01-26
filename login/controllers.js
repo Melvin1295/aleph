@@ -7,7 +7,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http','$locat
     $scope.usuario={};
     $scope.login=function(){   	   
           
-            $http.get('http://localhost/aleph/php/login.php/?a=login&username=' + $scope.user+"&clave="+$scope.passw).then(function(r){
+            $http.get('/aleph/php/login.php/?a=login&username=' + $scope.user+"&clave="+$scope.passw).then(function(r){
             	 
                 if( r.data == true){ 
                 	$window.location.href="/aleph/#/";
