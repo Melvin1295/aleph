@@ -12,15 +12,30 @@
 
 <body class="bodUser">
     <!-- Cabecera principal para todas las vistas -->
-    
+    <form>
+  <div class="container-fluid" >
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 fonUser">
+                <div class="col-sm-5 col-xs-12">
+                  <div class="row">
+                    <div class="col-sm-10 col-xs-10"><!-- Botón Menu Principal -->
+                      <div id="mostrar_nav">
+                        <p class="titWecUser">
+                          <span class="fa fa-home"></span> Welcome 
+                        </p>
+                      </div>
+                    </div><!-- Fin botón menu principal -->
+                  </div>
+                </div>
+            </div>  
   
     <nav><!-- Lista de Menu Principal -->
         <ul class="menu">
           <li><a href="user_desktop.php"><span class="fa fa-home"></span> Home</a></li>
-          <li><a href="/aleph/#/pagina1"><span class="fa fa-user"></span> RX-DENTAL</a></li>
-          <li><a href="history_leads.php"><span class="fa fa-file-text"></span> RX-TOMOGRAFIA</a></li>
-          <li><a href="history_opportunities.php"><span class="fa fa-bullseye"></span> RX-MAMOGRAFIA</a></li>
-          <li><a href="history_sales.php"><span class="fa fa-pencil-square-o"></span> RX_FLUOROSCOPICO</a></li>
+          <li><a href="#/"><span class="fa fa-user"></span> RX-DENTAL</a></li>
+          <li><a href="#/rx_tomografia"><span class="fa fa-file-text"></span> RX-TOMOGRAFIA</a></li>
+          <li><a href="#/rx_mamografia"><span class="fa fa-bullseye"></span> RX-MAMOGRAFIA</a></li>
+          <li><a href="#/rx_fluroscopico"><span class="fa fa-pencil-square-o"></span> RX_FLUOROSCOPICO</a></li>
         </ul>
     </nav><!-- Fin de Menu Principal -->
     <!-- Fin de cabecera principal -->
@@ -35,6 +50,7 @@
     <script src="js/angular-route.min.js"></script>
     <script src="app.js"></script>
     <script src="controllers.js"></script>
+    <script src="controllers1.js"></script>
     <!-- jQuery (necesario para Bootstrap JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>

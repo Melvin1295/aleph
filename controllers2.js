@@ -68,7 +68,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', '$log'
             $scope.currentPage = 4;
             $scope.itemsPerPage = 10;
             $scope.maxSize = 5; 
-            $scope.setItemsPerPage(5);
+            $scope.setItemsPerPage(3);
         });
     }
     function departamentos(){

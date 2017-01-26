@@ -1,19 +1,4 @@
-<form>
-  <div class="container-fluid" >
-        <div class="row">
-            <div class="col-sm-12 col-xs-12 fonUser">
-                <div class="col-sm-5 col-xs-12">
-                  <div class="row">
-                    <div class="col-sm-10 col-xs-10"><!-- Botón Menu Principal -->
-                      <div id="mostrar_nav">
-                        <p class="titWecUser">
-                          <span class="fa fa-home"></span> Welcome 
-                        </p>
-                      </div>
-                    </div><!-- Fin botón menu principal -->
-                  </div>
-                </div>
-            </div>           
+       
             <div class="col-sm-12 col-xs-12 desUser">
                 <form class="form-inline">
                   <div class="form-group col-sm-4 desComUser">
@@ -32,7 +17,7 @@
     </div>
   <div class="container-fluid">
    <div class="row">
-      <a href="#/rx_dental" class="btn btn-success" style="margin-top:5px; margin-left:5px;">Crear Nuevo</a>
+      <a href="#/rx_tomografia/create" class="btn btn-success" style="margin-top:5px; margin-left:5px;">Crear Nuevo</a>
    </div><br>
     <div class="row" class="text-align: center;"> 
     
@@ -57,7 +42,7 @@
               		<td>{{item.realizado_por}}</td>
               		<td>{{item.razon_social}}
               		<td style="width:120px;" ng-if="item.estado==1">
-				               <a class="btn btn-warning btn-xs" href="#/edit/{{item.id}}">
+				               <a class="btn btn-warning btn-xs" href="#/editTomografia/{{item.id}}">
 				                    <i class="glyphicon glyphicon-pencil"></i>
 				               </a>
 				                <button class="btn btn-danger btn-xs" ng-click="desactivar(item)">
@@ -65,7 +50,7 @@
 				                </button>
 				    </td>
 				    <td style="width:120px;" ng-if="item.estado==0">
-				               <a class="btn btn-warning btn-xs" href="#/edit/{{item.id}}">
+				               <a class="btn btn-warning btn-xs" href="#/editTomografia/{{item.id}}">
 				                    <i class="glyphicon glyphicon-pencil"></i>
 				               </a>
 				                <button class="btn btn-danger btn-xs" ng-click="desactivar(item)">

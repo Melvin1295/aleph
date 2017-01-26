@@ -1,6 +1,6 @@
-var empleadoControllers = angular.module('empleadoControllers', []);
+var rxtomografia = angular.module('rxtomografia', []);
 
-empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', '$log','$window'
+rxtomografia.controller('Rxtomografia', ['$scope', '$http', '$log','$window'
     ,function ($scope, $http, $log,$window) {
     
     $scope.documento="ejemplo";
@@ -68,7 +68,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http', '$log'
             $scope.currentPage = 4;
             $scope.itemsPerPage = 10;
             $scope.maxSize = 5; 
-            $scope.setItemsPerPage(5);
+            $scope.setItemsPerPage(3);
         });
     }
     function departamentos(){
@@ -136,7 +136,7 @@ $scope.setItemsPerPage = function(num) {
 }
 }]);
 
-empleadoControllers.controller('EmpleadoVerCtrl', ['$scope', '$routeParams', '$http','$window', function ($scope, $routeParams, $http,$window) {
+rxtomografia.controller('rxtomografiaEdit', ['$scope', '$routeParams', '$http','$window', function ($scope, $routeParams, $http,$window) {
     $scope.formato1={};
     $http.get('http://localhost/aleph/php/?a=obtenerformato&id=' + $routeParams.id).then(function(r){
          $scope.formato=r.data;

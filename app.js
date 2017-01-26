@@ -30,31 +30,69 @@ app.directive('intToBoolean', function() {
     });
 app.config(['$routeProvider',
   function($routeProvider) {
+    //-----------------------------------------------
     $routeProvider.
       when('/', {
-        templateUrl: 'pages/home.html',
+        templateUrl: 'pages/rx_dental_list.html',
         controller: 'EmpleadoListadoCtrl'
       }).
-      when('/home', {
-        templateUrl: 'pages/home.html',
+      when('/rx_tomografia', {
+        templateUrl: 'pages/rx_tomografia_list.html',
         controller: 'EmpleadoListadoCtrl'
       }).
+       when('/rx_mamografia', {
+        templateUrl: 'pages/rx_mamografia_list.html',
+        controller: 'EmpleadoListadoCtrl'
+      }).
+       when('/rx_fluroscopico', {
+        templateUrl: 'pages/rx_fluroscopico_list.html',
+        controller: 'EmpleadoListadoCtrl'
+      }).
+  //--------------------------------------------------------------------
       when('/rx_dental', {
         templateUrl: 'pages/rx_dental.html',
         controller: 'EmpleadoListadoCtrl'
       }).
-      when('/rx_tomografia', {
+      when('/rx_tomografia/create', {
         templateUrl: 'pages/rx_tomografia.html',
         controller: 'EmpleadoListadoCtrl'
       }).
+      when('/rx_mamografia/create', {
+        templateUrl: 'pages/rx_mamografia.html',
+        controller: 'EmpleadoListadoCtrl'
+      }).
+      when('/rx_fluroscopico/create', {
+        templateUrl: 'pages/rx_fluroscopico.html',
+        controller: 'EmpleadoListadoCtrl'
+      }).
+
+
+      /*when('/rx_tomografia', {
+        templateUrl: 'pages/rx_tomografia.html',
+        controller: 'EmpleadoListadoCtrl'
+      }).*/
       when('/header', {
         templateUrl: 'pages/header.html',
         controller: 'EmpleadoListadoCtrl'
       }).
+    //--------------------------------------------------------------------------
       when('/edit/:id', {
         templateUrl: 'pages/editrx_dental.html',
         controller: 'EmpleadoVerCtrl'
       }).
+      when('/editTomografia/:id', {
+        templateUrl: 'pages/rx_tomografia_edit.html',
+        controller: 'EmpleadoVerCtrl'
+      }).
+      when('/editMamografia/:id', {
+        templateUrl: 'pages/rx_mamografia_edit.html',
+        controller: 'EmpleadoVerCtrl'
+      }).
+      when('/editFluroscopico/:id', {
+        templateUrl: 'pages/rx_fluroscopico_edit.html',
+        controller: 'EmpleadoVerCtrl'
+      }).
+    //-------------------------------------------------------
       otherwise({
         redirectTo: '/login'
       });

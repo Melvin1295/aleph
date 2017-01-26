@@ -72,7 +72,7 @@ switch($action) {
 function getNombreUsuario($fluent){
 
     session_start();
-    
+
     if($_SESSION["usuario"] == null){
        $_SESSION["usuario"]="sa";
     }
