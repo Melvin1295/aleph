@@ -192,7 +192,7 @@ function registrar($fluent, $data)
                 $formato=$data['formato'];
                 $formato['equipo_id']=$ideuipo;
                 $formato['datos_cliente_id']=$idCliente;
-                $formato['fecha']=date('Y-m-d');
+                //$formato['fecha']=date('Y-m-d');
       $fluent->insertInto('descri_producto', $descripcionEquipo)
              ->execute();
       $fluent->insertInto('descri_producto', $descripcionEquipo2)

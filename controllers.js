@@ -15,6 +15,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
     $scope.listaFormato=[];
     $scope.viewby = 3; 
     $scope.usuario={};
+    $scope.formato.fecha=new Date();
    
     $http.get('/aleph/php/?a=usuario').then(function(r){
             $scope.usuario = r.data;
@@ -138,6 +139,9 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
     }
     
     $scope.registrar = function(){
+    $scope.formato.fecha=$scope.formato.fecha.getFullYear()+'-'+($scope.formato.fecha.getMonth()+1)+'-'+$scope.formato.fecha.getDate()+' '+
+                         $scope.formato.fecha.getHours()+':'+$scope.formato.fecha.getMinutes()+':'+$scope.formato.fecha.getSeconds();
+    
     $scope.equipo.descripcion="Equipo Ejemplo";
         var model = {
           formato: $scope.formato,
@@ -154,6 +158,9 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
         });
     }
     $scope.registrarTomografia = function(){
+       $scope.formato.fecha=$scope.formato.fecha.getFullYear()+'-'+($scope.formato.fecha.getMonth()+1)+'-'+$scope.formato.fecha.getDate()+' '+
+                         $scope.formato.fecha.getHours()+':'+$scope.formato.fecha.getMinutes()+':'+$scope.formato.fecha.getSeconds();
+    
     $scope.equipo.descripcion="Equipo Ejemplo";
     $scope.formato.tipo=1;
         var model = {
@@ -171,6 +178,9 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
         });
     }
     $scope.registrarMamografia = function(){
+    $scope.formato.fecha=$scope.formato.fecha.getFullYear()+'-'+($scope.formato.fecha.getMonth()+1)+'-'+$scope.formato.fecha.getDate()+' '+
+                         $scope.formato.fecha.getHours()+':'+$scope.formato.fecha.getMinutes()+':'+$scope.formato.fecha.getSeconds();
+    
     $scope.equipo.descripcion="Equipo Ejemplo";
     $scope.formato.tipo=2;
         var model = {
@@ -188,6 +198,9 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
         });
     }
     $scope.registrarFluroscopia = function(){
+     $scope.formato.fecha=$scope.formato.fecha.getFullYear()+'-'+($scope.formato.fecha.getMonth()+1)+'-'+$scope.formato.fecha.getDate()+' '+
+                         $scope.formato.fecha.getHours()+':'+$scope.formato.fecha.getMinutes()+':'+$scope.formato.fecha.getSeconds();
+    
     $scope.equipo.descripcion="Equipo Ejemplo";
     $scope.formato.tipo=3;
         var model = {
@@ -234,8 +247,9 @@ empleadoControllers.controller('EmpleadoVerCtrl', ['$location','$scope', '$route
     $scope.formato1={};
 
     $http.get('/aleph/php/?a=obtenerformato&id=' + $routeParams.id).then(function(r){
-         $scope.formato=r.data;
-          $scope.formato.fecha=new Date($scope.formato.fecha);
+           $scope.formato=r.data;
+           $scope.formato.fecha=new Date($scope.formato.fecha);
+           $scope.formato.fecha=new Date($scope.formato.fecha.getFullYear()+'-'+($scope.formato.fecha.getMonth()+1)+'-'+($scope.formato.fecha.getDate()+1));
           $http.get('/aleph/php/?a=obtenercliente&id=' + $scope.formato.datos_cliente_id).then(function(r){
               $scope.cliente=r.data;
           });
