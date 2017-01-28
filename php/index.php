@@ -19,7 +19,11 @@ switch($action) {
         break;
     case 'listar':
         header('Content-Type: application/json');
-        print_r(json_encode(listar1($fluent)));
+        print_r(json_encode(listar1($fluent,$_GET['tipo'])));
+        break;
+    case 'salir':
+        header('Content-Type: application/json');
+        print_r(json_encode(salir()));
         break;
     case 'obtener':
         header('Content-Type: application/json');
@@ -82,11 +86,12 @@ function getNombreUsuario($fluent){
          ->where('usuarios.nombre_usuario',$_SESSION["usuario"])
          ->fetch();
 }
-function profesiones($fluent)
+function salir()
 {
-    return $fluent
-         ->from('departamento')
-         ->fetchAll();
+     session_start();
+
+       $_SESSION["usuario"]=null;
+       return true;
 }
 
 function listar($fluent)
@@ -97,12 +102,13 @@ function listar($fluent)
          ->orderBy("id DESC")
          ->fetchAll();
 }
-function listar1($fluent)
+function listar1($fluent,$tipo)
 {
     return $fluent
          ->from('formato_control')
          ->leftJoin('datos_cliente ON datos_cliente.id = formato_control.datos_cliente_id')
          ->select('formato_control.*,datos_cliente.razon_social')
+         ->where('formato_control.tipo',$tipo)   
          ->orderBy("id DESC")
          ->fetchAll();
 }

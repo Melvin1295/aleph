@@ -1,5 +1,4 @@
-        
-            <div class="col-sm-12 col-xs-12 desUser">
+        <div class="col-sm-12 col-xs-12 desUser">
                 <form class="form-inline">
                   <div class="form-group col-sm-4 desComUser">
                     <label><span class="fa fa-building-o"></span></label>
@@ -7,7 +6,7 @@
                   </div>
                   <div class="form-group col-sm-4">
                     <label><span class="fa fa-bookmark"></span></label>
-                    <label>Usuario:{{usuario.apellidos}} </label>
+                    <label>Usuario:{{usuario.apellidos}} {{usuario.nombres}} <button class="btn btn-sm btn-danger" ng-click="salir()">Salir</button></label>
                     <label></label>
                   </div>
                 </form>
@@ -138,8 +137,8 @@
                       <td>FIJO</td>
                       <td><input type="checkbox"  ng-model="formato.fijo" ></td>
                       <td></td>
-                      <td>RODANTE</td>
-                      <td><input type="checkbox"  ng-model="formato.rodante" ></td>
+                      <td>PORTATIL</td>
+                      <td><input type="checkbox"  ng-model="formato.portatil" ></td>
                   </tr>
                   <tr>
                       <td></td>
@@ -504,7 +503,7 @@
                     
           </div>
           <div class="col-sm-12 bodFrmLogin">         
-              <button class="btn btn-info" ng-click="registrar()">Registrar</button>          
+              <button class="btn btn-info" ng-click="registrarTomografia()">Registrar</button>          
                 <br>    
           </div>
           <!-- Fin cuerpo del formulario -->

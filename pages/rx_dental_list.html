@@ -7,7 +7,7 @@
                   </div>
                   <div class="form-group col-sm-4">
                     <label><span class="fa fa-bookmark"></span></label>
-                    <label>Usuario:{{usuario.apellidos}} </label>
+                    <label>Usuario:{{usuario.apellidos}} {{usuario.nombres}} <button class="btn btn-sm btn-danger" ng-click="salir()">Salir</button></label>
                     <label></label>
                   </div>
                 </form>
@@ -17,6 +17,7 @@
     </div>
   <div class="container-fluid">
    <div class="row">
+   
       <a href="#/rx_dental" class="btn btn-success" style="margin-top:5px; margin-left:5px;">Crear Nuevo</a>
    </div><br>
     <div class="row" class="text-align: center;"> 
@@ -40,7 +41,7 @@
               		<td>{{item.fecha}}</td>
               		<td>{{item.observacion}}</td>
               		<td>{{item.realizado_por}}</td>
-              		<td>{{item.razon_social}}
+              		<td>{{item.razon_social}}</td>
               		<td style="width:120px;" ng-if="item.estado==1">
 				               <a class="btn btn-warning btn-xs" href="#/edit/{{item.id}}">
 				                    <i class="glyphicon glyphicon-pencil"></i>
@@ -70,6 +71,7 @@
               </div>
     </div>
     </div>
+
   </div>
   
 </form>

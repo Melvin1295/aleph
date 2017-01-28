@@ -12,7 +12,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$scope', '$http','$locat
                 if( r.data == true){ 
                 	$window.location.href="/aleph/#/";
                 }else{
-                	alert("Error Login !!");
+                	alert("Error Login contraseña o usuario incorrecto !!");
                 }
             });
         

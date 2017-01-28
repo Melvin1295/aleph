@@ -1,5 +1,4 @@
-         
-            <div class="col-sm-12 col-xs-12 desUser">
+<div class="col-sm-12 col-xs-12 desUser">
                 <form class="form-inline">
                   <div class="form-group col-sm-4 desComUser">
                     <label><span class="fa fa-building-o"></span></label>
@@ -7,7 +6,7 @@
                   </div>
                   <div class="form-group col-sm-4">
                     <label><span class="fa fa-bookmark"></span></label>
-                    <label>Usuario:{{usuario.apellidos}} </label>
+                    <label>Usuario:{{usuario.apellidos}} {{usuario.nombres}} <button class="btn btn-sm btn-danger" ng-click="salir()">Salir</button></label>
                     <label></label>
                   </div>
                 </form>
@@ -277,7 +276,7 @@
              </div>           
                     
           </div>
-          <div class="row">
+         <div class="row">
             <div class="cabFrmLogin">
               <p class="titFormatos">PARAMETROS GEOMETRICOS</p>
             </div>
@@ -293,13 +292,10 @@
                   </tr>
 
                   <tr>
-                      <td>MINIMA DISTANCIA FOCO-PIEL:</td>
-                      <td><input type="number" class="form-control"  string-to-number ng-model="formato.foco_piel" ></td>  
+                      <td>COINCIDENCIA DEL CAMPO DE RADIACION CON EL INTENSIFICADOR DE IMAGEN:</td>
+                      <td><input type="number" class="form-control" string-to-number ng-model="formato.campradiacion" ></td>  
                   </tr>
-                  <tr>
-                      <td>TAMAÑO DE CAMPO:</td>
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato. tam_camp" ></td>  
-                  </tr>
+                  
                   
               </table> 
              </div>           
@@ -312,7 +308,7 @@
           </div>
           <div class="col-sm-12 bodFrmLogin">
          
-           <div class="col-sm-12 form-group">
+           <div class="col-sm-9 form-group">
               <table class="table table-bordered">
                   
                   <tr>
@@ -343,43 +339,11 @@
                   </tr>
                   <tr>
                       <td>FILTRACION (mm):</td>
-                      <td colspan="2"><input type="number" string-to-number class="form-control"  ng-model="formato.filtracion" ></td>  
-                  </tr>
-                  
-              </table> 
-             </div>           
-                    
-          </div>
-          <div class="row">
-            <div class="cabFrmLogin">
-              <p class="titFormatos">TIEMPO DE EXPOSICION</p>
-            </div>
-          </div>
-          <div class="col-sm-12 bodFrmLogin">
-         
-           <div class="col-sm-12 form-group">
-              <table class="table table-bordered">
-                  
-                  <tr>
-                      <td></td>
-                      <td>TIEMPO NOMINAL</td> 
-                      <td>TIEMPO MEDIO</td> 
-                  </tr>
-
-                  <tr>
-                      <td>EXACTITUD:</td>
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato.tiempo_nominal" ></td>  
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato.tiempo_medio" ></td>  
-                  </tr>
-                   <tr>
-                      <td></td>
-                      <td>TIEMPO1</td> 
-                      <td>TIEMPO2</td> 
+                      <td colspan="2"><input type="number" class="form-control" string-to-number ng-model="formato.filtracion" ></td>  
                   </tr>
                   <tr>
-                      <td>REPETIBILIDAD:</td>
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato.tiem1" ></td> 
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato.tiem2" ></td>   
+                      <td>DISTORSIÓN GEOMETRICA:</td>
+                      <td colspan="2"><input type="number" class="form-control" string-to-number ng-model="formato.distorGeo" ></td>  
                   </tr>
                   
                   
@@ -387,6 +351,7 @@
              </div>           
                     
           </div>
+          
            <div class="row">
             <div class="cabFrmLogin">
               <p class="titFormatos">RENDIMIENTO</p>
@@ -471,15 +436,110 @@
 
                   <tr>
                       <td>DOSIS DE ENTRADA AL PACIENTE:</td>
-                      <td><select ng-model="formato.exploracion" class="form-control">
-                            <option value="Molar">Molar</option>
-                            <option value="interperipical">interperipical</option>
-                      </select></td>  
+                      <td><input type="text" class="form-control"  ng-model="formato.exploracion"></td>  
                       <td><input type="text" class="form-control"  ng-model="formato.docis_entrada"></td>  
                   </tr>
+                  <tr>
+                      <td></td>
+                      <td></td>  
+                      <td>RESULTADO</td>  
+                  </tr>
+                   <tr>
+                      <td>TASA DE DOSIS MAXIMA A PACIENTE ESTANDAR:</td>
+                      <td></td>  
+                      <td><input type="text" class="form-control"  ng-model="formato.dosisPasienEstand"></td>  
+                  </tr>
+                   
                    
                   
               </table> 
+             </div>           
+                    
+          </div>
+          <div class="row">
+            <div class="cabFrmLogin">
+              <p class="titFormatos">PARAMETROS DEL CONTROL AUTOMATICO DE EXPOSICION (CAI)</p>
+            </div>
+          </div>
+          <div class="col-sm-12 bodFrmLogin">
+         
+           <div class="col-sm-12 form-group">
+              <table class="table table-bordered">
+                  
+                  <tr>
+                      <td></td>
+                      <td>TASA1</td> 
+                      <td>TASA2</td> 
+                  </tr>
+
+                  <tr>
+                      <td>REPETIBILIDAD DE LA TASA DE DOSIS DE ENTRADA AL PACIENTE CON CAI:</td>
+                      <td><input type="text" class="form-control"  ng-model="formato.tasa10"></td>  
+                      <td><input type="text" class="form-control"  ng-model="formato.tasa20"></td>  
+                  </tr>
+                  
+                   
+                   
+                  
+              </table> 
+             </div>           
+                    
+          </div>
+           <div class="row">
+            <div class="cabFrmLogin">
+              <p class="titFormatos">PARAMETROS DE CALIDAD DE IMAGEN</p>
+            </div>
+          </div>
+          <div class="col-sm-12 bodFrmLogin">
+         
+           <div class="col-sm-12 form-group">
+              <table class="table table-bordered">
+                  
+                  <tr>
+                      <td></td>
+                      <td>RESULTADO</td>  
+                  </tr>
+
+                  <tr>
+                      <td>TASA DE DOSIS/DOSIS POR IMAGEN EN EL PLANO DE ENTRADA AL INTENSIFICADOR DE IMAGEN:</td>
+                      <td><input type="text" class="form-control"  ng-model="formato.intensificadorimage"></td>  
+                  </tr>
+              </table>
+              <table class="table table-bordered">
+                   <tr>
+                      <td></td> 
+                      <td>TASA1</td> 
+                      <td>TASA2</td> 
+                   </tr>
+                   <tr>
+                      <td >REPRODUCIBILIDAD DE LA TASA DE DOSIS/DOSIS POR IMAGEN EN EL PLANO DE ENTRADA DEL INTENSIFICADOR DE IMAGEN</td>
+                      <td><input type="text" class="form-control"  ng-model="formato.tasa1"></td>
+                      <td><input type="text" class="form-control"  ng-model="formato.tasa2"></td>   
+                  </tr>
+
+              </table>
+              <table class="table table-bordered">
+                  <tr>
+                      <td>ESCALA DE GRISES:</td>
+                      <td> </td> 
+                      <td><select ng-model="formato.grises" class="form-control">
+                            <option value="">Se visualiza</option>
+                            <option value="1">No se visualiza</option>
+                      </select></td> 
+                  </tr>
+                   <tr>
+                      <td>LIMITE DE RESOLUCION A ALTO CONTRASTE:</td>
+                      <td> </td> 
+                      <td><input type="text" class="form-control"  ng-model="formato.resoAltoContrast"></td>  
+                  </tr>
+                  <tr>
+                      <td>UMBRAL DE SENSIBILIDAD A BAJO CONTRASTE:</td>
+                      <td> </td> 
+                      <td><input type="text" class="form-control"  ng-model="formato.resoluBajoCntrast"></td>  
+                  </tr>
+                 
+              </table> 
+               
              </div>           
                     
           </div>
@@ -505,7 +565,7 @@
                     
           </div>
           <div class="col-sm-12 bodFrmLogin">         
-              <button class="btn btn-info" ng-click="update()">Modificar</button>          
+              <button class="btn btn-info" ng-click="update()">Registrar</button>          
                 <br>    
           </div>
           <!-- Fin cuerpo del formulario -->

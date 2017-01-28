@@ -20,13 +20,13 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
             $scope.usuario = r.data;
             
             if($scope.usuario.id == null){
-                $window.location.href="/aleph/login.html"
+                $window.location.href="/aleph/login.html";
             }
             //
         });
-
-    listas();
-    $scope.prueba = function(){
+     listas();
+    
+    $scope.salir = function(){
         $log.log($scope.documento);
     }
     $scope.validar=function(){$scope.formato.esta_meca=!$scope.formato1.esta_meca;}
@@ -59,9 +59,17 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
             $scope.model = r.data;
         });
     }
-
+    $scope.salir=function()
+    {
+       $http.get('/aleph/php/?a=salir').then(function(r){
+          
+           $window.location.href="/aleph/login.html";
+          
+       });
+    }
     function listas(){
-         $http.get('/aleph/php/?a=listar').then(function(r){
+      if($location.path()== '/'){
+         $http.get('/aleph/php/?a=listar&tipo='+0).then(function(r){
             $scope.listaFormato=r.data;
             $scope.viewby = 10;
             $scope.totalItems = $scope.listaFormato.length;
@@ -70,6 +78,41 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
             $scope.maxSize = 5; 
             $scope.setItemsPerPage(5);
         });
+      }
+      if($location.path()== '/rx_tomografia'){
+          $http.get('/aleph/php/?a=listar&tipo='+1).then(function(r){
+            $scope.listaFormato=r.data;
+            $scope.viewby = 10;
+            $scope.totalItems = $scope.listaFormato.length;
+            $scope.currentPage = 4;
+            $scope.itemsPerPage = 10;
+            $scope.maxSize = 5; 
+            $scope.setItemsPerPage(5);
+        });
+      }
+      if($location.path()== '/rx_mamografia'){
+          $http.get('/aleph/php/?a=listar&tipo='+2).then(function(r){
+            $scope.listaFormato=r.data;
+            $scope.viewby = 10;
+            $scope.totalItems = $scope.listaFormato.length;
+            $scope.currentPage = 4;
+            $scope.itemsPerPage = 10;
+            $scope.maxSize = 5; 
+            $scope.setItemsPerPage(5);
+        });
+        }
+      if($location.path()== '/rx_fluroscopico'){
+          $http.get('/aleph/php/?a=listar&tipo='+3).then(function(r){
+            $scope.listaFormato=r.data;
+            $scope.viewby = 10;
+            $scope.totalItems = $scope.listaFormato.length;
+            $scope.currentPage = 4;
+            $scope.itemsPerPage = 10;
+            $scope.maxSize = 5; 
+            $scope.setItemsPerPage(5);
+        });
+      }
+
     }
     function departamentos(){
         $http.get('/aleph/php/?a=departamentos').then(function(r){
@@ -106,7 +149,58 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
         };
         $http.post('/aleph/php/?a=registrar', model).then(function(r){            
                 alert("registrado Correctamente!!");  
-                $window.location.href="#/home";          
+                $window.location.href="#/";          
+           
+        });
+    }
+    $scope.registrarTomografia = function(){
+    $scope.equipo.descripcion="Equipo Ejemplo";
+    $scope.formato.tipo=1;
+        var model = {
+          formato: $scope.formato,
+          formato1: $scope.formato1,
+          descri_equipo: $scope.descri_equipo,
+          descri_equipo2:$scope.descri_equipo2,
+          cliente: $scope.cliente,
+          equipo: $scope.equipo
+        };
+        $http.post('/aleph/php/?a=registrar', model).then(function(r){            
+                alert("registrado Correctamente!!");  
+                $window.location.href="#/rx_tomografia";          
+           
+        });
+    }
+    $scope.registrarMamografia = function(){
+    $scope.equipo.descripcion="Equipo Ejemplo";
+    $scope.formato.tipo=2;
+        var model = {
+          formato: $scope.formato,
+          formato1: $scope.formato1,
+          descri_equipo: $scope.descri_equipo,
+          descri_equipo2:$scope.descri_equipo2,
+          cliente: $scope.cliente,
+          equipo: $scope.equipo
+        };
+        $http.post('/aleph/php/?a=registrar', model).then(function(r){            
+                alert("registrado Correctamente!!");  
+                $window.location.href="#/rx_mamografia";          
+           
+        });
+    }
+    $scope.registrarFluroscopia = function(){
+    $scope.equipo.descripcion="Equipo Ejemplo";
+    $scope.formato.tipo=3;
+        var model = {
+          formato: $scope.formato,
+          formato1: $scope.formato1,
+          descri_equipo: $scope.descri_equipo,
+          descri_equipo2:$scope.descri_equipo2,
+          cliente: $scope.cliente,
+          equipo: $scope.equipo
+        };
+        $http.post('/aleph/php/?a=registrar', model).then(function(r){            
+                alert("registrado Correctamente!!");  
+                $window.location.href="#/rx_fluroscopico";          
            
         });
     }
@@ -136,8 +230,9 @@ $scope.setItemsPerPage = function(num) {
 }
 }]);
 
-empleadoControllers.controller('EmpleadoVerCtrl', ['$scope', '$routeParams', '$http','$window', function ($scope, $routeParams, $http,$window) {
+empleadoControllers.controller('EmpleadoVerCtrl', ['$location','$scope', '$routeParams', '$http','$window', function ($location,$scope, $routeParams, $http,$window) {
     $scope.formato1={};
+
     $http.get('/aleph/php/?a=obtenerformato&id=' + $routeParams.id).then(function(r){
          $scope.formato=r.data;
           $scope.formato.fecha=new Date($scope.formato.fecha);
@@ -191,8 +286,20 @@ empleadoControllers.controller('EmpleadoVerCtrl', ['$scope', '$routeParams', '$h
           cliente: $scope.cliente
         };
         $http.post('/aleph/php/?a=update',  model).then(function(r){            
-                alert("registrado Correctamente!!");            
-                $window.location.href="#/home"; 
+                alert("Actualizado Correctamente!!"+$location.path());   
+                if($location.path()== '/edit/'+ $routeParams.id){
+                   $window.location.href="#/"; 
+                }
+                if($location.path()== '/editTomografia/'+ $routeParams.id){
+                   $window.location.href="#/rx_tomografia"; 
+                }
+                if($location.path()== '/editMamografia/'+ $routeParams.id){
+                   $window.location.href="#/rx_mamografia"; 
+                }
+                if($location.path()== '/editFluroscopico/'+ $routeParams.id){
+                   $window.location.href="#/rx_fluroscopico"; 
+                }         
+               
         });
     }
 }]);
