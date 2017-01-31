@@ -93,6 +93,23 @@ app.config(['$routeProvider',
         controller: 'EmpleadoVerCtrl'
       }).
     //-------------------------------------------------------
+    when('/print/:id', {
+        templateUrl: 'pages/print_dental.html',
+        controller: 'EmpleadoVerCtrl'
+      }).
+    when('/printTomografia/:id', {
+        templateUrl: 'pages/print_tomografia.html',
+        controller: 'EmpleadoVerCtrl'
+      }).
+    when('/printMamografia/:id', {
+        templateUrl: 'pages/print_mamografia.html',
+        controller: 'EmpleadoVerCtrl'
+      }).
+    when('/printFluroscopia/:id', {
+        templateUrl: 'pages/print_fluroscopia.html',
+        controller: 'EmpleadoVerCtrl'
+      }).
+    //-------------------------------------------------------
       otherwise({
         redirectTo: '/login'
       });

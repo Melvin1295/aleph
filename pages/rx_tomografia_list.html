@@ -30,6 +30,7 @@
               	 <th>Usuario</th>
               	 <th>Cliente</th>
               	 <th style="width:100px;">Acciones</th>
+                 <th style="width:40px;">Imp.</th>
               </thead>
               <tbody>
               	<tr ng-repeat="item in listaFormato.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
@@ -56,6 +57,10 @@
 				                    Activar
 				                </button>
 				    </td>
+            <td style="width:50px;">
+                       <a class="btn btn-info btn-xs" ng-click="abrirVentana(item.id)">
+                            <i class="glyphicon glyphicon-print"></i>
+                       </a></td>
               	</tr>
               </tbody>
           </table>

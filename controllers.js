@@ -115,6 +115,22 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
       }
 
     }
+    $scope.abrirVentana=function(url) {
+          var ancho = jQuery(window).width();
+          var alto = jQuery(window).height();
+          ancho = (7 * ancho) / 8;
+      
+          var opciones = "fullscreen=0,toolbar=0,location=1,status=1,menubar=0,scrollbars=1,resizable=1,width="
+              + ancho + ",height=" + alto + ",left=0,top=0";
+         // url='#/print/'+url;
+          var ventana = window.open('#/print/'+url, "ventana", opciones, 1);
+        }
+     $scope.onload = function() {
+        window.print();
+        setTimeout(function() {
+          window.close();
+        }, 1);
+      }
     function departamentos(){
         $http.get('/aleph/php/?a=departamentos').then(function(r){
            
@@ -250,6 +266,7 @@ empleadoControllers.controller('EmpleadoVerCtrl', ['$location','$scope', '$route
            $scope.formato=r.data;
            $scope.formato.fecha=new Date($scope.formato.fecha);
            $scope.formato.fecha=new Date($scope.formato.fecha.getFullYear()+'-'+($scope.formato.fecha.getMonth()+1)+'-'+($scope.formato.fecha.getDate()+1));
+           $scope.formato.fecha2=$scope.completarCero($scope.formato.fecha.getDate()+1)+'-'+$scope.completarCero($scope.formato.fecha.getMonth()+1)+'-'+$scope.formato.fecha.getFullYear();
           $http.get('/aleph/php/?a=obtenercliente&id=' + $scope.formato.datos_cliente_id).then(function(r){
               $scope.cliente=r.data;
           });
@@ -270,6 +287,16 @@ empleadoControllers.controller('EmpleadoVerCtrl', ['$location','$scope', '$route
             }
             //
         });
+    $scope.completarCero=function(num){
+      var numero='';
+           if (num < 10)
+            {
+               numero='0'+num;
+            }else{
+               numero=''+num;
+            }
+            return numero;
+    }
     $scope.validar=function(){$scope.formato.esta_meca=!$scope.formato1.esta_meca;}
     $scope.validar1=function(){$scope.formato1.esta_meca=!$scope.formato.esta_meca;}
 
