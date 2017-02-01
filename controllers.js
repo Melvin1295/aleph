@@ -113,24 +113,23 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
             $scope.setItemsPerPage(5);
         });
       }
+       if($location.path()== '/rx_Convencional'){
+          $http.get('/aleph/php/?a=listar&tipo='+4).then(function(r){
+            $scope.listaFormato=r.data;
+            $scope.viewby = 10;
+            $scope.totalItems = $scope.listaFormato.length;
+            $scope.currentPage = 4;
+            $scope.itemsPerPage = 10;
+            $scope.maxSize = 5; 
+            $scope.setItemsPerPage(5);
+        });
+      }
 
     }
     $scope.abrirVentana=function(url) {
-          var ancho = jQuery(window).width();
-          var alto = jQuery(window).height();
-          ancho = (7 * ancho) / 8;
-      
-          var opciones = "fullscreen=0,toolbar=0,location=1,status=1,menubar=0,scrollbars=1,resizable=1,width="
-              + ancho + ",height=" + alto + ",left=0,top=0";
-         // url='#/print/'+url;
-          var ventana = window.open('#/print/'+url, "ventana", opciones, 1);
+           window.open(url);
         }
-     $scope.onload = function() {
-        window.print();
-        setTimeout(function() {
-          window.close();
-        }, 1);
-      }
+    
     function departamentos(){
         $http.get('/aleph/php/?a=departamentos').then(function(r){
            
@@ -233,6 +232,26 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
            
         });
     }
+    $scope.registrarConvencional = function(){
+     $scope.formato.fecha=$scope.formato.fecha.getFullYear()+'-'+($scope.formato.fecha.getMonth()+1)+'-'+$scope.formato.fecha.getDate()+' '+
+                         $scope.formato.fecha.getHours()+':'+$scope.formato.fecha.getMinutes()+':'+$scope.formato.fecha.getSeconds();
+    
+    $scope.equipo.descripcion="Equipo Ejemplo";
+    $scope.formato.tipo=4;
+        var model = {
+          formato: $scope.formato,
+          formato1: $scope.formato1,
+          descri_equipo: $scope.descri_equipo,
+          descri_equipo2:$scope.descri_equipo2,
+          cliente: $scope.cliente,
+          equipo: $scope.equipo
+        };
+        $http.post('/aleph/php/?a=registrar', model).then(function(r){            
+                alert("registrado Correctamente!!");  
+                $window.location.href="#/rx_Convencional";          
+           
+        });
+    }
      $scope.desactivar = function(row){
         if(row.estado==0){row.estado=1}else{row.estado=0;};
         var model = {
@@ -252,7 +271,12 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
   $scope.pageChanged = function() {
     console.log('Page changed to: ' + $scope.currentPage);
   };
-
+  $scope.imprimir= function(){
+        if( $scope.descri_equipo.equi_id != null && $scope.descri_equipo2.equipo_id != null && $scope.cliente.datos_cliente_id != null)
+          {
+             $window.location.href="/printConvencional/"+ $routeParams.id; 
+          }
+    }
 $scope.setItemsPerPage = function(num) {
   $scope.itemsPerPage = num;
   $scope.currentPage = 1; //reset to first paghe
@@ -261,12 +285,13 @@ $scope.setItemsPerPage = function(num) {
 
 empleadoControllers.controller('EmpleadoVerCtrl', ['$location','$scope', '$routeParams', '$http','$window', function ($location,$scope, $routeParams, $http,$window) {
     $scope.formato1={};
-
+   // $scope.fecha2='';
     $http.get('/aleph/php/?a=obtenerformato&id=' + $routeParams.id).then(function(r){
            $scope.formato=r.data;
+           $scope.fecha2=$scope.formato.fecha;
            $scope.formato.fecha=new Date($scope.formato.fecha);
-           $scope.formato.fecha=new Date($scope.formato.fecha.getFullYear()+'-'+($scope.formato.fecha.getMonth()+1)+'-'+($scope.formato.fecha.getDate()+1));
-           $scope.formato.fecha2=$scope.completarCero($scope.formato.fecha.getDate()+1)+'-'+$scope.completarCero($scope.formato.fecha.getMonth()+1)+'-'+$scope.formato.fecha.getFullYear();
+          // $scope.formato.fecha=new Date($scope.sumaFecha(1,r.data.fecha));
+          
           $http.get('/aleph/php/?a=obtenercliente&id=' + $scope.formato.datos_cliente_id).then(function(r){
               $scope.cliente=r.data;
           });
@@ -287,6 +312,16 @@ empleadoControllers.controller('EmpleadoVerCtrl', ['$location','$scope', '$route
             }
             //
         });
+     $scope.mostrar=true;
+   
+     $scope.onload = function() {
+        $scope.mostrar=false;
+        //slert($scope.mostrar);
+        window.print();
+        setTimeout(function() {
+          window.close();
+        }, 1);
+      }
     $scope.completarCero=function(num){
       var numero='';
            if (num < 10)
@@ -319,6 +354,7 @@ empleadoControllers.controller('EmpleadoVerCtrl', ['$location','$scope', '$route
     $scope.validar13=function(){$scope.formato.barrera_protect=!$scope.formato1.barrera_protect;}
 
     $scope.update = function(){
+    
         var model = {
           formato: $scope.formato,
           formato1: $scope.formato1,
@@ -339,7 +375,10 @@ empleadoControllers.controller('EmpleadoVerCtrl', ['$location','$scope', '$route
                 }
                 if($location.path()== '/editFluroscopico/'+ $routeParams.id){
                    $window.location.href="#/rx_fluroscopico"; 
-                }         
+                }  
+                 if($location.path()== '/editConvencional/'+ $routeParams.id){
+                   $window.location.href="#/rx_Convencional"; 
+                }          
                
         });
     }

@@ -21,8 +21,9 @@
    
       <a href="#/rx_dental" class="btn btn-success" style="margin-top:5px; margin-left:5px;">Crear Nuevo</a>
    </div><br>
+
     <div class="row" class="text-align: center;"> 
-    
+       <div class="box-body table-responsive no-padding">
           <table class="table table-bordered ">
               <thead>
               	 <th style="width:30px;">#</th>
@@ -61,12 +62,13 @@
 				                </button>
 				    </td>
 				    <td style="width:50px;">
-				               <a class="btn btn-info btn-xs" ng-click="abrirVentana(item.id)" >
+				               <a class="btn btn-info btn-xs" ng-click="abrirVentana('#/print/'+item.id)" >
 				                    <i class="glyphicon glyphicon-print"></i>
 				               </a></td>
               	</tr>
               </tbody>
           </table>
+          </div>
           </div>
      <div class="row" class="text-align: center;" style="margin-top:-20px;"> 
         

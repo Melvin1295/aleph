@@ -19,7 +19,7 @@
       <a href="#/rx_mamografia/create" class="btn btn-success" style="margin-top:5px; margin-left:5px;">Crear Nuevo</a>
    </div><br>
     <div class="row" class="text-align: center;"> 
-    
+        <div class="box-body table-responsive no-padding">
           <table class="table table-bordered ">
               <thead>
               	 <th style="width:30px;">#</th>
@@ -40,7 +40,7 @@
               		<td>{{item.fecha}}</td>
               		<td>{{item.observacion}}</td>
               		<td>{{item.realizado_por}}</td>
-              		<td>{{item.razon_social}}
+              		<td>{{item.razon_social}}</td>
               		<td style="width:120px;" ng-if="item.estado==1">
 				               <a class="btn btn-warning btn-xs" href="#/editMamografia/{{item.id}}">
 				                    <i class="glyphicon glyphicon-pencil"></i>
@@ -58,13 +58,14 @@
         				                </button>
         				    </td>
                     <td style="width:50px;">
-                               <a class="btn btn-info btn-xs" ng-click="abrirVentana(item.id)">
+                               <a class="btn btn-info btn-xs" ng-click="abrirVentana('#/printMamografia/'+item.id)">
                                     <i class="glyphicon glyphicon-print"></i>
                                </a>
                     </td>
               	</tr>
               </tbody>
           </table>
+        </div>
           </div>
      <div class="row" class="text-align: center;" style="margin-top:-20px;"> 
         

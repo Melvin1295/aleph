@@ -28,6 +28,7 @@ app.directive('intToBoolean', function() {
             }
         };
     });
+
 app.config(['$routeProvider',
   function($routeProvider) {
     //-----------------------------------------------
@@ -48,6 +49,10 @@ app.config(['$routeProvider',
         templateUrl: 'pages/rx_fluroscopico_list.html',
         controller: 'EmpleadoListadoCtrl'
       }).
+        when('/rx_Convencional', {
+        templateUrl: 'pages/rx_convencional_list.html',
+        controller: 'EmpleadoListadoCtrl'
+      }).
   //--------------------------------------------------------------------
       when('/rx_dental', {
         templateUrl: 'pages/rx_dental.html',
@@ -65,7 +70,10 @@ app.config(['$routeProvider',
         templateUrl: 'pages/rx_fluroscopico.html',
         controller: 'EmpleadoListadoCtrl'
       }).
-
+       when('/rx_Convencional/create', {
+        templateUrl: 'pages/rx_convencional.html',
+        controller: 'EmpleadoListadoCtrl'
+      }).
 
       /*when('/rx_tomografia', {
         templateUrl: 'pages/rx_tomografia.html',
@@ -92,6 +100,10 @@ app.config(['$routeProvider',
         templateUrl: 'pages/rx_fluroscopico_edit.html',
         controller: 'EmpleadoVerCtrl'
       }).
+        when('/editConvencional/:id', {
+        templateUrl: 'pages/rx_convencional_edit.html',
+        controller: 'EmpleadoVerCtrl'
+      }).
     //-------------------------------------------------------
     when('/print/:id', {
         templateUrl: 'pages/print_dental.html',
@@ -109,8 +121,13 @@ app.config(['$routeProvider',
         templateUrl: 'pages/print_fluroscopia.html',
         controller: 'EmpleadoVerCtrl'
       }).
+     when('/printConvencional/:id', {
+        templateUrl: 'pages/print_convencional.html',
+        controller: 'EmpleadoVerCtrl'
+      }).
     //-------------------------------------------------------
       otherwise({
         redirectTo: '/login'
       });
   }]);
+

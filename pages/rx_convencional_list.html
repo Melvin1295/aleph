@@ -1,4 +1,5 @@
-       <div class="col-sm-12 col-xs-12 desUser">
+         
+            <div class="col-sm-12 col-xs-12 desUser">
                 <form class="form-inline">
                   <div class="form-group col-sm-4 desComUser">
                     <label><span class="fa fa-building-o"></span></label>
@@ -14,12 +15,15 @@
         </div>
     
     </div>
+
   <div class="container-fluid">
    <div class="row">
-      <a href="#/rx_tomografia/create" class="btn btn-success" style="margin-top:5px; margin-left:5px;">Crear Nuevo</a>
+   
+      <a href="#/rx_Convencional/create" class="btn btn-success" style="margin-top:5px; margin-left:5px;">Crear Nuevo</a>
    </div><br>
+
     <div class="row" class="text-align: center;"> 
-        <div class="box-body table-responsive no-padding">
+       <div class="box-body table-responsive no-padding">
           <table class="table table-bordered ">
               <thead>
               	 <th style="width:30px;">#</th>
@@ -30,7 +34,7 @@
               	 <th>Usuario</th>
               	 <th>Cliente</th>
               	 <th style="width:100px;">Acciones</th>
-                 <th style="width:40px;">Imp.</th>
+              	 <th style="width:40px;">Imp.</th>
               </thead>
               <tbody>
               	<tr ng-repeat="item in listaFormato.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
@@ -41,8 +45,8 @@
               		<td>{{item.observacion}}</td>
               		<td>{{item.realizado_por}}</td>
               		<td>{{item.razon_social}}</td>
-              		<td style="width:120px;" ng-if="item.estado==1">
-				               <a class="btn btn-warning btn-xs" href="#/editTomografia/{{item.id}}">
+              		<td style="width:120px; height:40px; " ng-if="item.estado==1">
+				               <a class="btn btn-warning btn-xs" href="#/editConvencional/{{item.id}}">
 				                    <i class="glyphicon glyphicon-pencil"></i>
 				               </a>
 				                <button class="btn btn-danger btn-xs" ng-click="desactivar(item)">
@@ -50,21 +54,21 @@
 				                </button>
 				    </td>
 				    <td style="width:120px;" ng-if="item.estado==0">
-				               <a class="btn btn-warning btn-xs" href="#/editTomografia/{{item.id}}">
+				               <a class="btn btn-warning btn-xs" href="#/editConvencional/{{item.id}}">
 				                    <i class="glyphicon glyphicon-pencil"></i>
 				               </a>
 				                <button class="btn btn-danger btn-xs" ng-click="desactivar(item)">
 				                    Activar
 				                </button>
 				    </td>
-            <td style="width:50px;">
-                       <a class="btn btn-info btn-xs" ng-click="abrirVentana('#/printTomografia/'+item.id)">
-                            <i class="glyphicon glyphicon-print"></i>
-                       </a></td>
+				    <td style="width:50px;">
+				               <a class="btn btn-info btn-xs" ng-click="abrirVentana('#/printConvencional/'+item.id)" >
+				                    <i class="glyphicon glyphicon-print"></i>
+				               </a></td>
               	</tr>
               </tbody>
           </table>
-        </div>
+          </div>
           </div>
      <div class="row" class="text-align: center;" style="margin-top:-20px;"> 
         
@@ -75,5 +79,7 @@
               </div>
     </div>
     </div>
+
   </div>
+  
 </form>

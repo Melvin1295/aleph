@@ -1,28 +1,29 @@
 
 <div class="row">
 <style type="text/css">
-        @media print {
-        .hidden-print {
-          display: none !important;
-        }
-      } </style>
-<div class="col-sm-1"></div>
-<div class="col-sm-10">
+  @media print {
+  .hidden-print {
+    display: none !important;
+  }
+}
+</style>
+<div class="col-sm-1" ></div>
+<div class="col-sm-10" >
   <div class="container-fluid">
     <div class="row" class="text-align: center;"> 
       <div class="col-sm-4"></div><!-- Brinda el espacio para colocar el formulario en el centro -->
       <!--Div ancho de fomulario-->
         <div class="col-sm-12 " class="text-align: center;">
-        <div class="row"><button ng-click="onload()" class="hidden-print">Imprimir</button></div>
+         <div class="row"><button ng-click="onload()" class="hidden-print">Imprimir</button></div>
           <div class="row">
             <div class="cabFrmLogin">
-              <p class="titFormatos">FORMATO PARA EL CONTROL DE CALIDAD A EQUIPO DE RAYOS X TOMOGRAFIA</p>
+              <p class="titFormatos">FORMATO PARA EL CONTROL DE CALIDAD A EQUIPO DE RAYOS X CONVENCIONAL</p>
             </div>
           </div>
           <!-- Cuerpo del formulario -->
           <div class="col-sm-12 bodFrmLogin">
 
-           <table class="table table-bordered">
+            <table class="table table-bordered">
                <thead>
                  <tr>
                    <th>
@@ -44,7 +45,9 @@
                   </tr>
                 </tbody>
             </table>
-
+            
+            </div>
+       </div>
             <!-- Boton Login de formulario -->
             
             <!-- Fin de boton Login de formulario -->
@@ -56,7 +59,7 @@
           </div>
           <!-- Cuerpo del formulario -->
           <div class="col-sm-12 bodFrmLogin">
-           <table class="table table-bordered">
+             <table class="table table-bordered">
                <thead>
                  <tr>
                    <th>
@@ -125,22 +128,36 @@
                   <tr>
                       <td></td>
                       <td>FIJO</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.fijo" ></td>
+                      <td><input type="checkbox"  ng-true-value="1" ng-false-value="0" int-to-boolean ng-model="formato.fijo" ></td>
                       <td></td>
-                      <td>PORTATIL</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.portatil" ></td>
+                      <td>PERIAPICAL</td>
+                      <td><input type="checkbox"  ng-true-value="1" ng-false-value="0" int-to-boolean ng-model="formato.periapical" ></td>
                   </tr>
                   <tr>
                       <td></td>
                       <td>RODANTE</td>
                       <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.rodante" ></td>
                       <td></td>
+                      <td>PANORAMICO</td>
+                      <td><input type="checkbox"  ng-true-value="1" ng-false-value="0" int-to-boolean ng-model="formato.panoramico" ></td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td>PORTATIL</td>
+                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.portatil" ></td>
+                      <td></td>
+                      <td>CEFALOMETRICO</td>
+                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-model="formato.cefalometrico" ></td>
+                  </tr>
+                  <tr>
+                      <td></td>
                       <td>UNIDAD MOVIL</td>
                       <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.uni_movil" ></td>
+                      <td></td>
+                      <td>TOMOGRAFICO</td>
+                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.tomografo" ></td>
                   </tr>
-                  
-              </table>  
-              
+              </table> 
              </div>
 
                     
@@ -251,7 +268,7 @@
              </div>           
                     
           </div>
-               <div class="row">
+          <div class="row">
             <div class="cabFrmLogin">
               <p class="titFormatos">PARAMETROS GEOMETRICOS</p>
             </div>
@@ -262,41 +279,30 @@
               <table class="table table-bordered">
                   
                   <tr>
-                      <td colspan="2"></td>
                       <td></td>
-                      <td>RESULTADOS</td> 
+                      <td>LADO1</td> 
+                      <td>LADO2</td> 
+                      <td>LADO3</td> 
+                      <td>LADO4</td> 
                   </tr>
 
                   <tr>
-                      <td colspan="2">ALINEACION LUZ-HAZ DE RADIACION:</td>
-                      <td></td>
-                      <td>{{formato.radiacion}}</td>  
+                      <td>COINCIDENCIA DEL CAMPO DE LUZ-CAMPO DE RADIACION:</td>
+                      <td>{{formato.lado1}}</td>  
+                      <td>{{formato.lado2}}</td>
+                      <td>{{formato.lado3}}</td>
+                      <td>{{formato.lado4}}</td>
+                  </tr>
+                   <tr>
+                      <td colspan="2">CENTRADO CAMPO LUZ - CAMPO RADIACION: </td>
+                      <td>{{formato.centroCampoLRadia}}</td>
                   </tr>
                   <tr>
-                      <td colspan="2">DESPLAZAMIENTO DE LA CAMILLA:</td>
-                      <td></td>
-                      <td>{{formato.camilla}}</td>  
-                  </tr> 
-                  <tr>
-                      <td colspan="2">EXACTITUD DEL ANGULO DE ESTATIVO :</td>
-                      <td></td>
-                      <td>{{formato.exaAnguloEstatio}}</td>  
-                  </tr>  
-                  
+                      <td  colspan="2">OTORGALIDAD DE HAZ DE RAYOS X Y DE RECEPTOR DE IMAGES</td>
+                      <td>{{formato.otorgalidad}}</td>
+                  </tr>
                   
               </table> 
-                <table class="table table-bordered">
-                <tr>
-                      <td></td>
-                      <td>ESPESOR NOMINAL</td>
-                      <td>ESPESOR MEDIO</td> 
-                  </tr>
-                  <tr>
-                      <td >ESPESOR EFECTIVO DE CORTE:</td>
-                      <td>{{formato.espesornnominal}}</td> 
-                      <td>{{formato.espesormedio}}</td>  
-                  </tr> 
-                </table>
              </div>           
                     
           </div>
@@ -307,7 +313,7 @@
           </div>
           <div class="col-sm-12 bodFrmLogin">
          
-           <div class="col-sm-9 form-group">
+           <div class="col-sm-12 form-group">
               <table class="table table-bordered">
                   
                   <tr>
@@ -331,15 +337,53 @@
                       <td>{{formato.kv1}}</td> 
                       <td>{{formato.kv2}}</td>   
                   </tr>
+                
+                  <tr>
+                      <td >FILTRACION (mm):</td>
+                      <td colspan="2">{{formato.filtracion}}</td>  
+                  </tr>
                   
+              </table> 
+             </div>           
+                    
+          </div>
+          <div class="row">
+            <div class="cabFrmLogin">
+              <p class="titFormatos">TIEMPO DE EXPOSICION</p>
+            </div>
+          </div>
+          <div class="col-sm-12 bodFrmLogin">
+         
+           <div class="col-sm-12 form-group">
+              <table class="table table-bordered">
+                  
+                  <tr>
+                      <td></td>
+                      <td>TIEMPO NOMINAL</td> 
+                      <td>TIEMPO MEDIO</td> 
+                  </tr>
+
+                  <tr>
+                      <td>EXACTITUD:</td>
+                      <td>{{formato.tiempo_nominal}}</td>  
+                      <td>{{formato.tiempo_medio}}</td>  
+                  </tr>
+                   <tr>
+                      <td></td>
+                      <td>TIEMPO1</td> 
+                      <td>TIEMPO2</td> 
+                  </tr>
+                  <tr>
+                      <td>REPETIBILIDAD:</td>
+                      <td>{{formato.tiem1}}</td> 
+                      <td>{{formato.tiem2}}</td>   
+                  </tr>
                   
                   
               </table> 
              </div>           
                     
           </div>
-          
-       
            <div class="row">
             <div class="cabFrmLogin">
               <p class="titFormatos">RENDIMIENTO</p>
@@ -384,7 +428,7 @@
                   
                   <tr>
                       <td colspan="4">VARIACION DEL RENDIMIENTO CON LA CORRIENTE</td>
-                       
+                  
                   </tr>
                   <tr>
                       <td>MAS1</td>
@@ -406,7 +450,7 @@
           </div>
           <div class="row">
             <div class="cabFrmLogin">
-              <p class="titFormatos">CALIDAD DE IMAGEN</p>
+              <p class="titFormatos">PARA METROS DOSIMETRICOS</p>
             </div>
           </div>
           <div class="col-sm-12 bodFrmLogin">
@@ -416,51 +460,16 @@
                   
                   <tr>
                       <td></td>
-                      <td>RESULTADO</td>  
+                      <td>EXPLORACION</td> 
+                      <td>DOSIS</td> 
                   </tr>
 
                   <tr>
-                      <td>RUIDO DE IMAGEN:</td>
-                      <td>{{formato.ruidoImagen}}</td>  
+                      <td>DOSIS DE ENTRADA AL PACIENTE:</td>
+                      <td>{{formato.exploracion}}</td>  
+                      <td>{{formato.docis_entrada}}</td>  
                   </tr>
-                   <tr>
-                      <td>VERIFICACION DE LA AUSENCIA DE ARTEFACTOS EN LA IMAGEN:</td>
-                      <td>{{formato.artefactosImagen}}</td>  
-                  </tr>
-                  <tr>
-                      <td>UNIFORMIDAD ESPACIAL DE NUMERO TC:</td>
-                      <td>{{formato.numerotc}}</td>  
-                  </tr>
-                  <tr>
-                      <td>LINEALIDAD Y ESCALA DE CONTRASTE:</td>
-                      <td>{{formato.escalaContrast}}</td>  
-                  </tr>
-                  <tr>
-                      <td>RESOLUCION A BAJO CONTRASTE (RESOLUCION DE CONTRASTE):</td>
-                      <td>{{formato.resoluBajoCntrast}}</td>  
-                  </tr>
-                  <tr>
-                      <td>RESOLUCION A ALTO CONTRASTE (RESOLUCION ESPACIAL):</td>
-                      <td>{{formato.resoAltoContrast}}</td>  
-                  </tr>
-                  <tr>
-                      <td>INDICE DE DOSIS EN CT (CTDI):</td>
-                      <td>{{formato.indiceDosisct}}</td>  
-                  </tr>
-              </table> 
-               <table class="table table-bordered">
-                  
-                  <tr>
-                      <td></td>
-                      <td>AGUA</td>  
-                      <td>AIRE</td>
-                  </tr>
-
-                  <tr>
-                      <td>VALOR  MEDIO DEL NUMERO TC:</td>
-                      <td>{{formato.agua}}</td>  
-                      <td>{{formato.aire}}</td>  
-                  </tr>
+                   
                   
               </table> 
              </div>           
@@ -477,8 +486,9 @@
              </div>           
                     
           </div>
-          <div class="col-sm-12 bodFrmLogin">         
-            <table class="table table-bordered">
+          <div class="col-sm-12 bodFrmLogin" >         
+                     
+                <table class="table table-bordered">
                   
                   <tr>
                       <td></td>
@@ -493,10 +503,10 @@
                   </tr>
                    
                   
-              </table>              
-                    
+              </table>      
           </div>
-          
+              
+         
           <!-- Fin cuerpo del formulario -->
         </div>
       </div>
