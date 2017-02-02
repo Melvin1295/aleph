@@ -363,7 +363,7 @@ empleadoControllers.controller('EmpleadoVerCtrl', ['$location','$scope', '$route
           cliente: $scope.cliente
         };
         $http.post('/aleph/php/?a=update',  model).then(function(r){            
-                alert("Actualizado Correctamente!!"+$location.path());   
+                alert("Actualizado Correctamente!!");   
                 if($location.path()== '/edit/'+ $routeParams.id){
                    $window.location.href="#/"; 
                 }
