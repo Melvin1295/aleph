@@ -16,6 +16,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
     $scope.viewby = 3; 
     $scope.usuario={};
     $scope.formato.fecha=new Date();
+    $scope.datoBuscado;
    
     $http.get('/aleph/php/?a=usuario').then(function(r){
             $scope.usuario = r.data;
@@ -55,6 +56,65 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
     $scope.codigo_Departamento='01';
     $scope.person=[];
   */
+   $scope.buscar=function()
+   {
+   if($location.path()== '/'){
+         $http.get('/aleph/php/?a=buscar&tipo='+0+'&dato='+$scope.datoBuscado).then(function(r){
+            $scope.listaFormato=r.data;
+            $scope.viewby = 10;
+            $scope.totalItems = $scope.listaFormato.length;
+            $scope.currentPage = 4;
+            $scope.itemsPerPage = 10;
+            $scope.maxSize = 5; 
+            $scope.setItemsPerPage(5);
+        });
+      }
+      if($location.path()== '/rx_tomografia'){
+          $http.get('/aleph/php/?a=buscar&tipo='+1+'&dato='+$scope.datoBuscado).then(function(r){
+            $scope.listaFormato=r.data;
+            $scope.viewby = 10;
+            $scope.totalItems = $scope.listaFormato.length;
+            $scope.currentPage = 4;
+            $scope.itemsPerPage = 10;
+            $scope.maxSize = 5; 
+            $scope.setItemsPerPage(5);
+        });
+      }
+      if($location.path()== '/rx_mamografia'){
+          $http.get('/aleph/php/?a=buscar&tipo='+2+'&dato='+$scope.datoBuscado).then(function(r){
+            $scope.listaFormato=r.data;
+            $scope.viewby = 10;
+            $scope.totalItems = $scope.listaFormato.length;
+            $scope.currentPage = 4;
+            $scope.itemsPerPage = 10;
+            $scope.maxSize = 5; 
+            $scope.setItemsPerPage(5);
+        });
+        }
+      if($location.path()== '/rx_fluroscopico'){
+          $http.get('/aleph/php/?a=buscar&tipo='+3+'&dato='+$scope.datoBuscado).then(function(r){
+            $scope.listaFormato=r.data;
+            $scope.viewby = 10;
+            $scope.totalItems = $scope.listaFormato.length;
+            $scope.currentPage = 4;
+            $scope.itemsPerPage = 10;
+            $scope.maxSize = 5; 
+            $scope.setItemsPerPage(5);
+        });
+      }
+       if($location.path()== '/rx_Convencional'){
+          $http.get('/aleph/php/?a=buscar&tipo='+4+'&dato='+$scope.datoBuscado).then(function(r){
+            $scope.listaFormato=r.data;
+            $scope.viewby = 10;
+            $scope.totalItems = $scope.listaFormato.length;
+            $scope.currentPage = 4;
+            $scope.itemsPerPage = 10;
+            $scope.maxSize = 5; 
+            $scope.setItemsPerPage(5);
+        });
+      }
+
+   }
     function empleados(){
         $http.get('/aleph/php/?a=listar').then(function(r){
             $scope.model = r.data;

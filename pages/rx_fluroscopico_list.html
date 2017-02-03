@@ -16,9 +16,26 @@
     
     </div>
   <div class="container-fluid">
-   <div class="row">
-      <a href="#/rx_fluroscopico/create" class="btn btn-success" style="margin-top:5px; margin-left:5px;">Crear Nuevo</a>
-   </div><br>
+  
+      <div class="container">
+  <div class="row">
+         <div class="col-md-7">
+               <a href="#/rx_fluroscopico/create" class="btn btn-success" style="margin-top:5px; margin-left:5px;">Crear Nuevo</a>
+         </div>
+        <div class="col-md-5">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" ng-model="datoBuscado" ng-keyup="buscar()" placeholder="Buscar" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" ng-click="buscar()" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
     <div class="row" class="text-align: center;"> 
         <div class="box-body table-responsive no-padding">
           <table class="table table-bordered ">

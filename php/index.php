@@ -21,6 +21,10 @@ switch($action) {
         header('Content-Type: application/json');
         print_r(json_encode(listar1($fluent,$_GET['tipo'])));
         break;
+    case 'buscar':
+        header('Content-Type: application/json');
+        print_r(json_encode(buscar($fluent,$_GET['tipo'],$_GET['dato'])));
+        break;
     case 'salir':
         header('Content-Type: application/json');
         print_r(json_encode(salir()));
@@ -111,6 +115,24 @@ function listar1($fluent,$tipo)
          ->where('formato_control.tipo',$tipo)   
          ->orderBy("id DESC")
          ->fetchAll();
+}
+function buscar($fluent,$tipo,$dato)
+{
+     try{
+            return $fluent
+                 ->from('formato_control')
+                 ->join('datos_cliente ON datos_cliente.id = formato_control.datos_cliente_id')
+                 ->select('formato_control.*,datos_cliente.razon_social')
+                 ->where('formato_control.tipo = ? AND (formato_control.nro_informe LIKE ? 
+                    OR formato_control.nro_certificado LIKE ? OR 
+                    datos_cliente.razon_social LIKE ? OR formato_control.realizado_por LIKE ?)',
+                    $tipo,"%".$dato."%","%".$dato."%","%".$dato."%","%".$dato."%")   
+                // ->where('(razon_social like ?)',"%SAC%")  
+                 ->orderBy("id DESC")
+                 ->fetchAll();      
+         }catch(PDOException  $e ){
+            echo "Error: ".$e;
+         }
 }
 function getid($fluent)
 {
