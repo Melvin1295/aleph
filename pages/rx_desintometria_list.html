@@ -1,0 +1,99 @@
+         
+            <div class="col-sm-12 col-xs-12 desUser">
+                <form class="form-inline">
+                  <div class="form-group col-sm-4 desComUser">
+                    <label><span class="fa fa-building-o"></span></label>
+                    <label>Aleph Group</label>
+                  </div>
+                  <div class="form-group col-sm-4">
+                    <label><span class="fa fa-bookmark"></span></label>
+                    <label>Usuario:{{usuario.apellidos}} {{usuario.nombres}} <button class="btn btn-sm btn-danger" ng-click="salir()">Salir</button></label>
+                    <label></label>
+                  </div>
+                </form>
+            </div>
+        </div>
+    
+    </div>
+
+  <div class="container-fluid">
+  <div class="container">
+  <div class="row">
+         <div class="col-md-7">
+               <a href="#/rx_Desintometria/create" class="btn btn-success" style="margin-top:5px; margin-left:5px;">Crear Nuevo</a>
+         </div>
+        <div class="col-md-5">
+            <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" ng-model="datoBuscado" ng-keyup="buscar()" placeholder="Buscar" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" ng-click="buscar()" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+   
+
+    <div class="row" class="text-align: center;"> 
+       <div class="box-body table-responsive no-padding">
+          <table class="table table-bordered ">
+              <thead>
+              	 <th style="width:30px;">#</th>
+              	 <th>N° Informe</th>
+              	 <th>Fecha</th>
+              	 <th>Obserbacion</th>
+              	 <th>Usuario</th>
+              	 <th>Cliente</th>
+              	 <th style="width:100px;">Acciones</th>
+              	 <th style="width:40px;">Imp.</th>
+              </thead>
+              <tbody>
+              	<tr ng-repeat="item in listaFormato.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+              		<td>{{index+1}}</td>
+              		<td>{{item.nro_informe}}</td>
+              		<td>{{item.fecha}}</td>
+              		<td>{{item.observacion}}</td>
+              		<td>{{item.realizado_por}}</td>
+              		<td>{{item.razon_social}}</td>
+              		<td style="width:120px; height:40px; " ng-if="item.estado==1">
+				               <a class="btn btn-warning btn-xs" href="#/editDesintometria/{{item.id}}">
+				                    <i class="glyphicon glyphicon-pencil"></i>
+				               </a>
+				                <button class="btn btn-danger btn-xs" ng-click="desactivar(item)">
+				                    Desactivar
+				                </button>
+				    </td>
+				    <td style="width:120px;" ng-if="item.estado==0">
+				               <a class="btn btn-warning btn-xs" href="#/editDesintometria/{{item.id}}">
+				                    <i class="glyphicon glyphicon-pencil"></i>
+				               </a>
+				                <button class="btn btn-danger btn-xs" ng-click="desactivar(item)">
+				                    Activar
+				                </button>
+				    </td>
+				    <td style="width:50px;">
+				               <a class="btn btn-info btn-xs" ng-click="abrirVentana('#/printDesintometria/'+item.id)" >
+				                    <i class="glyphicon glyphicon-print"></i>
+				               </a></td>
+              	</tr>
+              </tbody>
+          </table>
+          </div>
+          </div>
+     <div class="row" class="text-align: center;" style="margin-top:-20px;"> 
+        
+        <!--<select ng-model="viewby" ng-change="setItemsPerPage(viewby)" ng-init="setItemsPerPage(5)">
+                 <option value="3">3</option><option value="5">5</option><option value="10">10</option><option>20</option><option>30</option><option>40</option><option>50</option></select> -->
+             <div class="box-footer clearfix">  
+                  <pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" items-per-page="itemsPerPage"></pagination>
+              </div>
+    </div>
+    </div>
+
+  </div>
+  
+</form>

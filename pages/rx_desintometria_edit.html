@@ -1,4 +1,4 @@
-         <div class="col-sm-12 col-xs-12 desUser">
+          <div class="col-sm-12 col-xs-12 desUser">
                 <form class="form-inline">
                   <div class="form-group col-sm-4 desComUser">
                     <label><span class="fa fa-building-o"></span></label>
@@ -24,21 +24,18 @@
         <div class="col-sm-12 frmFormatos" class="text-align: center;">
           <div class="row">
             <div class="cabFrmLogin">
-              <p class="titFormatos">FORMATO PARA EL CONTROL DE CALIDAD A EQUIPO DE RAYOS X TOMOGRAFIA</p>
+              <p class="titFormatos">FORMATO PARA EL CONTROL DE CALIDAD A EQUIPO DE RAYOS X DESINTOMETRIA</p>
             </div>
           </div>
           <!-- Cuerpo del formulario -->
           <div class="col-sm-12 bodFrmLogin">
 
-            <div class="col-sm-4 form-group">
+            <div class="col-sm-6 form-group">
               <input type="text" class="form-control" ng-disabled="true" ng-model="formato.nro_informe" placeholder="Informe N°">
             </div>
 
-            <div class="col-sm-4 form-group">
-              <input type="text" class="form-control" ng-model="formato.nro_certificado" placeholder="Certificado N°">
-            </div>
 
-            <div class="col-sm-4 form-group">
+            <div class="col-sm-6 form-group">
                             <div  class="input-group">
                                 <div class="input-group-addon">
                                       <i class="fa fa-calendar"></i>
@@ -126,36 +123,7 @@
               <p class="titFormatos">DATOS DEL EQUIPO</p>
             </div>
           </div>
-         <div class="col-sm-12 bodFrmLogin">
-         <div class="col-sm-3 form-group">
-           <label>TIPO:</label>
-         </div>
-           <div class="col-sm-9 form-group">
-              <table class="table table-bordered">
-                  
-                  <tr>
-                      <td></td>
-                      <td>FIJO</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.fijo" ></td>
-                      <td></td>
-                      <td>PORTATIL</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.portatil" ></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>RODANTE</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.rodante" ></td>
-                      <td></td>
-                      <td>UNIDAD MOVIL</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.uni_movil" ></td>
-                  </tr>
-                  
-              </table>  
-              
-             </div>
-
-                    
-          </div>
+         
           <div class="col-sm-12 bodFrmLogin">
          
            <div class="col-sm-12 form-group">
@@ -164,42 +132,34 @@
                   <tr>
                       <td></td>
                       <td>CONSOLA | GENERADOR</td>                      
-                      <td>TUBO</td>
+                  
                   </tr>
                   <tr>
                       <td>MARCA:</td>
-                      <td><input type="text" class="form-control" ng-model="descri_equipo.marca" ></td>                      
-                      <td><input type="text" class="form-control" ng-model="descri_equipo2.marca" ></td>
+                      <td><input type="text" class="form-control" ng-model="descri_equipo.marca" ></td>
                   </tr>
                   <tr>
                       <td>MODELO:</td>
                       <td><input type="text" class="form-control" ng-model="descri_equipo.modelo" ></td>                      
-                      <td><input type="text" class="form-control" ng-model="descri_equipo2.modelo" ></td>
                   </tr>
                   <tr>
                        <td>N° SERIE:</td>
                       <td><input type="text" class="form-control" ng-model="descri_equipo.nro_serie" ></td>                      
-                      <td><input type="text" class="form-control" ng-model="descri_equipo2.nro_serie" ></td>
                   </tr>
                   <tr>
                        <td>Kv MAX:</td>
-                      <td><input type="text" class="form-control" ng-model="descri_equipo.kvp_max" ></td>                      
-                      <td><input type="text" class="form-control" ng-model="descri_equipo2.kvp_max" ></td>
-                  </tr>
+                      <td><input type="text" class="form-control" ng-model="descri_equipo.kvp_max" ></td></tr>
                   <tr>
                        <td>Ma/Mas MAX:</td>
-                      <td><input type="text" class="form-control" ng-model="descri_equipo.max" ></td>                      
-                      <td><input type="text" class="form-control" ng-model="descri_equipo2.max" ></td>
+                      <td><input type="text" class="form-control" ng-model="descri_equipo.max" ></td>
                   </tr>
                   <tr>
                        <td>AÑO DE FABRICACION:</td>
-                      <td><input type="number" class="form-control" string-to-number ng-model="descri_equipo.anio_fabri" ></td>                      
-                      <td><input type="number" class="form-control" string-to-number ng-model="descri_equipo2.anio_fabri" ></td>
+                      <td><input type="number" class="form-control" string-to-number ng-model="descri_equipo.anio_fabri" ></td>    
                   </tr>
                   <tr>
                        <td>AÑO DE INSTALACION:</td>
-                      <td><input type="number" class="form-control" string-to-number ng-model="descri_equipo.anio_insta" ></td>                      
-                      <td><input type="number" class="form-control" string-to-number ng-model="descri_equipo2.anio_insta" ></td>
+                      <td><input type="number" class="form-control" string-to-number ng-model="descri_equipo.anio_insta" ></td>  
                   </tr>
               </table> 
              </div>           
@@ -262,7 +222,7 @@
              </div>           
                     
           </div>
-               <div class="row">
+          <div class="row">
             <div class="cabFrmLogin">
               <p class="titFormatos">PARAMETROS GEOMETRICOS</p>
             </div>
@@ -273,216 +233,29 @@
               <table class="table table-bordered">
                   
                   <tr>
-                      <td colspan="2"></td>
                       <td></td>
                       <td>RESULTADOS</td> 
                   </tr>
 
                   <tr>
-                      <td colspan="2">ALINEACION LUZ-HAZ DE RADIACION:</td>
-                      <td></td>
-                      <td><input type="number" string-to-number class="form-control"  ng-model="formato.radiacion" ></td>  
+                      <td>DENSIDAD MINERAL OSEA (DMO):</td>
+                      <td><input type="number" class="form-control"  string-to-number ng-model="formato.foco_piel" ></td>  
                   </tr>
                   <tr>
-                      <td colspan="2">DESPLAZAMIENTO DE LA CAMILLA:</td>
-                      <td></td>
-                      <td><input type="number" string-to-number class="form-control"  ng-model="formato.camilla" ></td>  
-                  </tr> 
-                  <tr>
-                      <td colspan="2">EXACTITUD DEL ANGULO DE ESTATIVO :</td>
-                      <td></td>
-                      <td><input type="number" string-to-number class="form-control"  ng-model="formato.exaAnguloEstatio" ></td>  
-                  </tr>  
-                  
-                  
-              </table> 
-                <table class="table table-bordered">
-                <tr>
-                      <td></td>
-                      <td>ESPESOR NOMINAL</td>
-                      <td>ESPESOR MEDIO</td> 
+                       <td>ONTENIDO MINERAL OSEO (CMO):</td>
+                      <td><input type="number" class="form-control" string-to-number ng-model="formato. tam_camp" ></td>  
                   </tr>
                   <tr>
-                      <td >ESPESOR EFECTIVO DE CORTE:</td>
-                      <td><input type="number" class="form-control" string-to-number  ng-model="formato.espesornnominal" ></td> 
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato.espesormedio" ></td>  
-                  </tr> 
-                </table>
-             </div>           
-                    
-          </div>
-          <div class="row">
-            <div class="cabFrmLogin">
-              <p class="titFormatos">CALIDAD DEL HAZ</p>
-            </div>
-          </div>
-          <div class="col-sm-12 bodFrmLogin">
-         
-           <div class="col-sm-9 form-group">
-              <table class="table table-bordered">
-                  
-                  <tr>
-                      <td></td>
-                      <td>kV nominal</td> 
-                      <td>kV medido</td> 
+                       <td>AREA:</td>
+                      <td><input type="number" class="form-control" string-to-number ng-model="formato. filtracion" ></td>  
                   </tr>
-
-                  <tr>
-                      <td>EXACTITUD DE LA TENSION:</td>
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato.kvnominal" ></td>  
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato.kvmedio" ></td>  
-                  </tr>
-                   <tr>
-                      <td></td>
-                      <td>kV1</td> 
-                      <td>kV2</td> 
-                  </tr>
-                  <tr>
-                      <td>REPETIBILIDAD DE LA TENSION:</td>
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato.kv1" ></td> 
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato.kv2" ></td>   
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td></td> 
-                      <td></td> 
-                  </tr>
-                  
                   
               </table> 
              </div>           
                     
           </div>
           
-       
-           <div class="row">
-            <div class="cabFrmLogin">
-              <p class="titFormatos">RENDIMIENTO</p>
-            </div>
-          </div>
-          <div class="col-sm-12 bodFrmLogin">
-         
-           <div class="col-sm-12 form-group">
-              <table class="table table-bordered">
-                  
-                  <tr>
-                      <td></td>
-                      <td>DOSIS1</td> 
-                      <td>DOSIS2</td> 
-                  </tr>
-
-                  <tr>
-                      <td>REPETIBILIDAD:</td>
-                      <td><input type="text" class="form-control"  ng-model="formato.dosis1" ></td>  
-                      <td><input type="text" class="form-control"  ng-model="formato.dosis2" ></td>  
-                  </tr>
-                   <tr>
-                      <td></td>
-                      <td>MAS</td> 
-                      <td>DOSIS</td> 
-                  </tr>
-                  <tr>
-                      <td>VALOR DEL RENDIMIENTO:</td>
-                      <td><input type="text" class="form-control"  ng-model="formato.mas" ></td> 
-                      <td><input type="text" class="form-control"  ng-model="formato.dosis" ></td>   
-                  </tr>
-                  
-                  
-              </table> 
-             </div>           
-                    
-          </div>
-          <div class="col-sm-12 bodFrmLogin">
-         
-           <div class="col-sm-12 form-group">
-              <table class="table table-bordered">
-                  
-                  <tr>
-                      <td colspan="3">VARIACION DEL RENDIMIENTO CON LA CORRIENTE</td>
-                      <td></td> 
-                      <td></td> 
-                      <td></td>
-                  </tr>
-                  <tr>
-                      <td>MAS1</td>
-                      <td>DOSIS1</td> 
-                      <td>MAS2</td> 
-                      <td>DOSIS2</td>
-                  </tr>
-                  <tr>
-                      <td><input type="text" class="form-control"  ng-model="formato.mas1" ></td>  
-                      <td><input type="text" class="form-control"  ng-model="formato.dosis10" ></td> 
-                      <td><input type="text" class="form-control"  ng-model="formato.mas2" ></td>  
-                      <td><input type="text" class="form-control"  ng-model="formato.dosis20" ></td>  
-                  </tr>               
-                  
-                  
-              </table> 
-             </div>           
-                    
-          </div>
-          <div class="row">
-            <div class="cabFrmLogin">
-              <p class="titFormatos">CALIDAD DE IMAGEN</p>
-            </div>
-          </div>
-          <div class="col-sm-12 bodFrmLogin">
-         
-           <div class="col-sm-12 form-group">
-              <table class="table table-bordered">
-                  
-                  <tr>
-                      <td></td>
-                      <td>RESULTADO</td>  
-                  </tr>
-
-                  <tr>
-                      <td>RUIDO DE IMAGEN:</td>
-                      <td><input type="text" class="form-control"  ng-model="formato.ruidoImagen"></td>  
-                  </tr>
-                   <tr>
-                      <td>VERIFICACION DE LA AUSENCIA DE ARTEFACTOS EN LA IMAGEN:</td>
-                      <td><input type="text" class="form-control"  ng-model="formato.artefactosImagen"></td>  
-                  </tr>
-                  <tr>
-                      <td>UNIFORMIDAD ESPACIAL DE NUMERO TC:</td>
-                      <td><input type="text" class="form-control"  ng-model="formato.numerotc"></td>  
-                  </tr>
-                  <tr>
-                      <td>LINEALIDAD Y ESCALA DE CONTRASTE:</td>
-                      <td><input type="text" class="form-control"  ng-model="formato.escalaContrast"></td>  
-                  </tr>
-                  <tr>
-                      <td>RESOLUCION A BAJO CONTRASTE (RESOLUCION DE CONTRASTE):</td>
-                      <td><input type="text" class="form-control"  ng-model="formato.resoluBajoCntrast"></td>  
-                  </tr>
-                  <tr>
-                      <td>RESOLUCION A ALTO CONTRASTE (RESOLUCION ESPACIAL):</td>
-                      <td><input type="text" class="form-control"  ng-model="formato.resoAltoContrast"></td>  
-                  </tr>
-                  <tr>
-                      <td>INDICE DE DOSIS EN CT (CTDI):</td>
-                      <td><input type="text" class="form-control"  ng-model="formato.indiceDosisct"></td>  
-                  </tr>
-              </table> 
-               <table class="table table-bordered">
-                  
-                  <tr>
-                      <td></td>
-                      <td>AGUA</td>  
-                      <td>AIRE</td>
-                  </tr>
-
-                  <tr>
-                      <td>VALOR  MEDIO DEL NUMERO TC:</td>
-                      <td><input type="text" class="form-control"  ng-model="formato.agua"></td>  
-                      <td><input type="text" class="form-control"  ng-model="formato.aire"></td>  
-                  </tr>
-                  
-              </table> 
-             </div>           
-                    
-          </div>
+          
           <div class="col-sm-12 bodFrmLogin">
          
            <div class="col-sm-3 form-group">
@@ -505,7 +278,7 @@
                     
           </div>
           <div class="col-sm-12 bodFrmLogin">         
-              <button class="btn btn-info" ng-click="update()">Registrar</button>          
+              <button class="btn btn-info" ng-click="update()">Modificar</button>          
                 <br>    
           </div>
           <!-- Fin cuerpo del formulario -->

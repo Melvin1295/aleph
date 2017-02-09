@@ -17,7 +17,11 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
     $scope.usuario={};
     $scope.formato.fecha=new Date();
     $scope.datoBuscado;
-   
+    
+     $http.get('/aleph/php/?a=getidCorrelativo').then(function(r){            
+                $scope.formato.nro_informe=r.data;
+        });
+     
     $http.get('/aleph/php/?a=usuario').then(function(r){
             $scope.usuario = r.data;
             
@@ -113,6 +117,17 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
             $scope.setItemsPerPage(5);
         });
       }
+      if($location.path()== '/rx_desintometria'){
+          $http.get('/aleph/php/?a=buscar&tipo='+5+'&dato='+$scope.datoBuscado).then(function(r){
+            $scope.listaFormato=r.data;
+            $scope.viewby = 10;
+            $scope.totalItems = $scope.listaFormato.length;
+            $scope.currentPage = 4;
+            $scope.itemsPerPage = 10;
+            $scope.maxSize = 5; 
+            $scope.setItemsPerPage(5);
+        });
+      }
 
    }
     function empleados(){
@@ -175,6 +190,17 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
       }
        if($location.path()== '/rx_Convencional'){
           $http.get('/aleph/php/?a=listar&tipo='+4).then(function(r){
+            $scope.listaFormato=r.data;
+            $scope.viewby = 10;
+            $scope.totalItems = $scope.listaFormato.length;
+            $scope.currentPage = 4;
+            $scope.itemsPerPage = 10;
+            $scope.maxSize = 5; 
+            $scope.setItemsPerPage(5);
+        });
+      }
+       if($location.path()== '/rx_desintometria'){
+          $http.get('/aleph/php/?a=listar&tipo='+5).then(function(r){
             $scope.listaFormato=r.data;
             $scope.viewby = 10;
             $scope.totalItems = $scope.listaFormato.length;
@@ -312,6 +338,26 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
            
         });
     }
+     $scope.registrarDesintometria = function(){
+     $scope.formato.fecha=$scope.formato.fecha.getFullYear()+'-'+($scope.formato.fecha.getMonth()+1)+'-'+$scope.formato.fecha.getDate()+' '+
+                         $scope.formato.fecha.getHours()+':'+$scope.formato.fecha.getMinutes()+':'+$scope.formato.fecha.getSeconds();
+    
+    $scope.equipo.descripcion="Equipo Ejemplo";
+    $scope.formato.tipo=5;
+        var model = {
+          formato: $scope.formato,
+          formato1: $scope.formato1,
+          descri_equipo: $scope.descri_equipo,
+          descri_equipo2:$scope.descri_equipo2,
+          cliente: $scope.cliente,
+          equipo: $scope.equipo
+        };
+        $http.post('/aleph/php/?a=registrar', model).then(function(r){            
+                alert("registrado Correctamente!!");  
+                $window.location.href="#/rx_desintometria";          
+           
+        });
+    }
      $scope.desactivar = function(row){
         if(row.estado==0){row.estado=1}else{row.estado=0;};
         var model = {
@@ -438,7 +484,10 @@ empleadoControllers.controller('EmpleadoVerCtrl', ['$location','$scope', '$route
                 }  
                  if($location.path()== '/editConvencional/'+ $routeParams.id){
                    $window.location.href="#/rx_Convencional"; 
-                }          
+                }   
+                if($location.path()== '/editDesintometria/'+ $routeParams.id){
+                   $window.location.href="#/rx_desintometria"; 
+                }         
                
         });
     }

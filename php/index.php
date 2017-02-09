@@ -76,6 +76,10 @@ switch($action) {
        header('Content-Type: application/json');
         print_r(json_encode(getNombreUsuario($fluent)));
         break;
+    case 'getidCorrelativo':
+        header('Content-Type: application/json');
+        print_r(json_encode(getidCorrelativo($fluent)));
+        break;
 }
 function getNombreUsuario($fluent){
 
@@ -151,6 +155,14 @@ function getidcliente($fluent)
    return $result->id;
 }
 
+function getidCorrelativo($fluent)
+{
+    $result=$fluent
+         ->from('formato_control')
+         ->select('max(formato_control.id)+1 as id')
+         ->fetch();
+   return $result->id;
+}
 
 function obtener($fluent, $id)
 {

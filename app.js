@@ -53,6 +53,10 @@ app.config(['$routeProvider',
         templateUrl: 'pages/rx_convencional_list.html',
         controller: 'EmpleadoListadoCtrl'
       }).
+        when('/rx_desintometria', {
+        templateUrl: 'pages/rx_desintometria_list.html',
+        controller: 'EmpleadoListadoCtrl'
+      }).
   //--------------------------------------------------------------------
       when('/rx_dental', {
         templateUrl: 'pages/rx_dental.html',
@@ -72,6 +76,10 @@ app.config(['$routeProvider',
       }).
        when('/rx_Convencional/create', {
         templateUrl: 'pages/rx_convencional.html',
+        controller: 'EmpleadoListadoCtrl'
+      }).
+        when('/rx_Desintometria/create', {
+        templateUrl: 'pages/rx_desintometria.html',
         controller: 'EmpleadoListadoCtrl'
       }).
 
@@ -104,6 +112,10 @@ app.config(['$routeProvider',
         templateUrl: 'pages/rx_convencional_edit.html',
         controller: 'EmpleadoVerCtrl'
       }).
+      when('/editDesintometria/:id', {
+        templateUrl: 'pages/rx_desintometria_edit.html',
+        controller: 'EmpleadoVerCtrl'
+      }).
     //-------------------------------------------------------
     when('/print/:id', {
         templateUrl: 'pages/print_dental.html',
@@ -123,6 +135,10 @@ app.config(['$routeProvider',
       }).
      when('/printConvencional/:id', {
         templateUrl: 'pages/print_convencional.html',
+        controller: 'EmpleadoVerCtrl'
+      }).
+     when('/printDesintometria/:id', {
+        templateUrl: 'pages/print_desintometria.html',
         controller: 'EmpleadoVerCtrl'
       }).
     //-------------------------------------------------------
