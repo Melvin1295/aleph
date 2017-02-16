@@ -20,21 +20,43 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
     
      $http.get('/aleph/php/?a=getidCorrelativo').then(function(r){            
                 $scope.formato.nro_informe=r.data;
+                $scope.formato.nro_certificado=parseInt(r.data)+100;
         });
      
     $http.get('/aleph/php/?a=usuario').then(function(r){
             $scope.usuario = r.data;
-            
-            if($scope.usuario.id == null){
+            //alert($scope.usuario.id);
+            if($scope.usuario.id == null ){
                 $window.location.href="/aleph/login.html";
-            }
+            }else{
+                
+                if($scope.usuario.rol==0){
+                   $window.location.href="#/print/"+$scope.usuario.informe_id; 
+                }
+                if($scope.usuario.rol==1){
+                   $window.location.href="#/printTomografia/"+$scope.usuario.informe_id; 
+                }
+                if($scope.usuario.rol==2){
+                   $window.location.href="#/printMamografia/"+$scope.usuario.informe_id;
+                }
+                if($scope.usuario.rol==3){
+                   $window.location.href="#/printFluroscopia/"+$scope.usuario.informe_id;
+                }  
+                 if($scope.usuario.rol==4){
+                   $window.location.href="#/printConvencional/"+$scope.usuario.informe_id;
+                }   
+                if($scope.usuario.rol==5){
+                   $window.location.href="#/printDesintometria/"+$scope.usuario.informe_id;
+                }
+                if($scope.usuario.rol==6){
+                   $window.location.href="#/"; 
+                }  
+              }
             //
         });
      listas();
     
-    $scope.salir = function(){
-        $log.log($scope.documento);
-    }
+    
     $scope.validar=function(){$scope.formato.esta_meca=!$scope.formato1.esta_meca;}
     $scope.validar1=function(){$scope.formato1.esta_meca=!$scope.formato.esta_meca;}
 
@@ -375,6 +397,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
   };
 
   $scope.pageChanged = function() {
+    alert("cambio page");
     console.log('Page changed to: ' + $scope.currentPage);
   };
   $scope.imprimir= function(){
@@ -419,7 +442,14 @@ empleadoControllers.controller('EmpleadoVerCtrl', ['$location','$scope', '$route
             //
         });
      $scope.mostrar=true;
-   
+       $scope.salir=function()
+    {
+       $http.get('/aleph/php/?a=salir').then(function(r){
+          
+           $window.location.href="/aleph/login.html";
+          
+       });
+    }
      $scope.onload = function() {
         $scope.mostrar=false;
         //slert($scope.mostrar);

@@ -14,7 +14,11 @@
       <div class="col-sm-4" ></div><!-- Brinda el espacio para colocar el formulario en el centro -->
       <!--Div ancho de fomulario-->
         <div class="col-sm-12 " class="text-align: center;">
-        <div class="row"><button ng-click="onload()" class="hidden-print">Imprimir</button></div>
+        <div class="row"><button ng-click="onload()" class="hidden-print">Imprimir</button> <div class="form-group col-sm-4 hidden-print" ng-show="usuario.rol != null">
+                    <label><span class="fa fa-bookmark"></span></label>
+                    <label>Usuario:{{usuario.apellidos}} {{usuario.nombres}} <button class="btn btn-sm btn-danger" ng-click="salir()">Salir</button></label>
+                    <label></label>
+                  </div></div>
           <div class="row">
             <div class="cabFrmLogin">
               <p class="titFormatos">FORMATO PARA EL CONTROL DE CALIDAD A EQUIPO DE RAYOS X FLUROSCOPIA</p>

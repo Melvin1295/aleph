@@ -211,6 +211,16 @@ function eliminar($fluent, $id)
 
 function registrar($fluent, $data)
 {
+      $clienteEjemplo=$data['cliente'];
+      $formato=$data['formato'];
+      $usuario['nombres']=$clienteEjemplo['razon_social'];
+      $usuario['apellidos']='';
+      $usuario['nombre_usuario']=$clienteEjemplo['ruc'];
+      $usuario['clave']=$clienteEjemplo['ruc'];
+      $usuario['informe_id']=$formato['nro_informe'];
+      $usuario['rol']=$formato['tipo'];
+
+      //var_dump($usuario);die();
       $fluent->insertInto('equipo', $data['equipo'])
              ->execute();    
                 $ideuipo=getid($fluent);
@@ -223,7 +233,7 @@ function registrar($fluent, $data)
              ->execute();
 
                 $idCliente=getidcliente($fluent);
-                $formato=$data['formato'];
+               
                 $formato['equipo_id']=$ideuipo;
                 $formato['datos_cliente_id']=$idCliente;
                 //$formato['fecha']=date('Y-m-d');
@@ -233,6 +243,8 @@ function registrar($fluent, $data)
              ->execute();
       $fluent->insertInto('formato_control', $formato)
              ->execute();
+        $fluent->insertInto('usuarios', $usuario)
+             ->execute(); 
     return true;
 }
 function update ($fluent, $data)
