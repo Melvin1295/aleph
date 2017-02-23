@@ -55,7 +55,10 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
             //
         });
      listas();
-    
+    $scope.validaKV=function(){
+      alert("amigo aca pon las validaciones XD!!");
+      $scope.formato.kvnominal=0;
+    }
     
     $scope.validar=function(){$scope.formato.esta_meca=!$scope.formato1.esta_meca;}
     $scope.validar1=function(){$scope.formato1.esta_meca=!$scope.formato.esta_meca;}
