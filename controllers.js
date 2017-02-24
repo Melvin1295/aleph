@@ -92,7 +92,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
         }else{alert("Error: el valor maximo aceptado es <=20 !!");$scope.formato.tiem1=0;}
     }
     $scope.repetitibilidad1=function(){
-        if($scope.formato.tiem2 <=0){
+        if($scope.formato.tiem2 <=10){
         }else{alert("Error: el valor maximo aceptado es <=20 !!");$scope.formato.tiem2=0;}
     }
     $scope.dosisEntrada=function(){
@@ -318,7 +318,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
     $scope.registrar = function(){
     $scope.formato.fecha=$scope.formato.fecha.getFullYear()+'-'+($scope.formato.fecha.getMonth()+1)+'-'+$scope.formato.fecha.getDate()+' '+
                          $scope.formato.fecha.getHours()+':'+$scope.formato.fecha.getMinutes()+':'+$scope.formato.fecha.getSeconds();
-    
+     $scope.formato.tipo=0;
     $scope.equipo.descripcion="Equipo Ejemplo";
         var model = {
           formato: $scope.formato,
