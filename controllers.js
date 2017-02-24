@@ -59,7 +59,58 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
       alert("amigo aca pon las validaciones XD!!");
       $scope.formato.kvnominal=0;
     }
-    
+    $scope.distanciMinima=function(){
+        if($scope.formato.foco_piel >= 20){
+        }else{alert("Error: el valor minimo aceptado es >=20 cm!!");$scope.formato.foco_piel=0;}
+    }
+    $scope.tamanioCampo=function(){
+        if($scope.formato.tam_camp <= 6){
+        }else{alert("Error: el valor maximo aceptado es <=6 cm!!");$scope.formato.foco_piel=0;}
+    }
+    $scope.exactitudTension=function(){
+          if($scope.formato.kvnominal > 0 && $scope.formato.kvmedio >0){
+              var validaTension=100*(($scope.formato.kvnominal-$scope.formato.kvmedio)/$scope.formato.kvnominal)
+            
+          }
+            else{formato.kvmedio}
+    }
+ // $scope.formato.exploracion=0;
+  $scope.tamanioFiltracion=function(){
+        if($scope.formato.filtracion >= 1.5){
+        }else{alert("Error: el valor maximo aceptado es >=1.5 cm!!");$scope.formato.filtracion=0;}
+    }
+    $scope.tamanioExactitudNom=function(){
+        if($scope.formato.tiempo_nominal <=20){
+        }else{alert("Error: el valor maximo aceptado es <=20 !!");$scope.formato.tiempo_nominal=0;}
+    }
+    $scope.tamanioExactitudMed=function(){
+        if($scope.formato.tiempo_medio <=20){
+        }else{alert("Error: el valor maximo aceptado es <=20 !!");$scope.formato.tiempo_medio=0;}
+    }
+    $scope.repetitibilidad=function(){
+        if($scope.formato.tiem1 <=10){
+        }else{alert("Error: el valor maximo aceptado es <=20 !!");$scope.formato.tiem1=0;}
+    }
+    $scope.repetitibilidad1=function(){
+        if($scope.formato.tiem2 <=0){
+        }else{alert("Error: el valor maximo aceptado es <=20 !!");$scope.formato.tiem2=0;}
+    }
+    $scope.dosisEntrada=function(){
+      if($scope.formato.docis_entrada <4){
+        }else{alert("Error: el valor maximo aceptado es <4 !!");$scope.formato.docis_entrada=0;}
+    }
+    $scope.alineacion=function(){
+      if($scope.formato.radiacion <= 2){
+        }else{alert("Error: el valor maximo aceptado es <= 2 !!");$scope.formato.radiacion=0;}
+    }
+    $scope.espesorEfectivoCorte=function(){
+      if($scope.formato.espesornnominal == 2 || $scope.formato.espesornnominal == 5 || $scope.formato.espesornnominal == 8){
+        }else{alert("Error: los valores aceptados son 2,5,8!!");$scope.formato.espesornnominal=0;}
+    }
+    $scope.exactidtuAngulo=function(){
+      if($scope.formato.exaAnguloEstatio <3){
+        }else{alert("Error: el valor debe ser <3 !!");$scope.formato.exaAnguloEstatio=0;}
+    }
     $scope.validar=function(){$scope.formato.esta_meca=!$scope.formato1.esta_meca;}
     $scope.validar1=function(){$scope.formato1.esta_meca=!$scope.formato.esta_meca;}
 

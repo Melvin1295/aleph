@@ -293,11 +293,13 @@
 
                   <tr>
                       <td>MINIMA DISTANCIA FOCO-PIEL:</td>
-                      <td><input type="number" class="form-control"  string-to-number ng-model="formato.foco_piel" ></td>  
+                      <td><input type="number" class="form-control" ng-blur="distanciMinima()"  string-to-number ng-model="formato.foco_piel" ></td>  
                   </tr>
                   <tr>
                       <td>TAMAÑO DE CAMPO:</td>
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato. tam_camp" ></td>  
+                      <td><input type="number" class="form-control" string-to-number ng-model="formato. tam_camp" >
+                          <span >La edad no puede exceder de 150.</span>
+                      </td>  
                   </tr>
                   
               </table> 

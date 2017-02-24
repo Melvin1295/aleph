@@ -279,7 +279,7 @@
                   <tr>
                       <td colspan="2">ALINEACION LUZ-HAZ DE RADIACION:</td>
                       <td></td>
-                      <td><input type="number" class="form-control"  ng-model="formato.radiacion" ></td>  
+                      <td><input type="number" class="form-control" ng-blur="alineacion()" ng-model="formato.radiacion" ></td>  
                   </tr>
                   <tr>
                       <td colspan="2">DESPLAZAMIENTO DE LA CAMILLA:</td>
@@ -289,7 +289,7 @@
                   <tr>
                       <td colspan="2">EXACTITUD DEL ANGULO DE ESTATIVO :</td>
                       <td></td>
-                      <td><input type="number" class="form-control"  ng-model="formato.exaAnguloEstatio" ></td>  
+                      <td><input type="number" class="form-control" ng-blur="exactidtuAngulo()" ng-model="formato.exaAnguloEstatio" ></td>  
                   </tr>  
                   
                   
@@ -302,7 +302,7 @@
                   </tr>
                   <tr>
                       <td >ESPESOR EFECTIVO DE CORTE:</td>
-                      <td><input type="number" class="form-control"  ng-model="formato.espesornnominal" ></td> 
+                      <td><input type="number" class="form-control" ng-blur="espesorEfectivoCorte()" ng-model="formato.espesornnominal" ></td> 
                       <td><input type="number" class="form-control"  ng-model="formato.espesormedio" ></td>  
                   </tr> 
                 </table>
