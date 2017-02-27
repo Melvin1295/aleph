@@ -54,10 +54,10 @@
               </thead>
               <tbody>
               	<tr ng-repeat="item in listaFormato.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
-              		<td>{{index+1}}</td>
+              		<td>{{$index+1}}</td>
               		<td>{{item.nro_informe}}</td>
               		<td>{{item.nro_certificado}}</td>
-              		<td>{{item.fecha}}</td>
+              		<td>{{item.fecha | date:'dd/MM/yyyy'}}</td>
               		<td>{{item.observacion}}</td>
               		<td>{{item.realizado_por}}</td>
               		<td>{{item.razon_social}}</td>
@@ -120,7 +120,7 @@
             </div>
 
             <div class="col-sm-9 form-group">
-              <input type="text" class="form-control" ng-model="formula.kvind">
+              <input type="number" class="form-control" min="0" step="0.1" ng-model="formula.kvind">
             </div>
 
             <div class="col-sm-3 form-group">
@@ -128,7 +128,7 @@
             </div>
 
             <div class="col-sm-9 form-group">
-              <input type="text" class="form-control" ng-model="formula.kvmed">
+              <input type="number" class="form-control" min="0" step="0.1" ng-model="formula.kvmed">
             </div>
 
             <div class="cabFrmLogin">
@@ -140,7 +140,7 @@
             </div>
 
             <div class="col-sm-9 form-group">
-              <input type="text" class="form-control" ng-model="formula.kvind">
+              <input type="number" class="form-control" min="0" step="0.1" ng-model="formula.kv1">
             </div>
 
             <div class="col-sm-3 form-group">
@@ -148,7 +148,7 @@
             </div>
 
             <div class="col-sm-9 form-group">
-              <input type="text" class="form-control" ng-model="formula.kvmed">
+              <input type="number" class="form-control" min="0" step="0.1" ng-model="formula.kav2">
             </div>
 
             <div class="cabFrmLogin">
@@ -160,7 +160,7 @@
             </div>
 
             <div class="col-sm-9 form-group">
-              <input type="text" class="form-control" ng-model="formula.lmayor">
+              <input type="number" class="form-control" min="0" step="0.1" ng-model="formula.lmayor">
             </div>
 
             <div class="col-sm-3 form-group">
@@ -168,12 +168,12 @@
             </div>
 
             <div class="col-sm-9 form-group">
-              <input type="text" class="form-control" ng-model="formula.lmenor">
+              <input type="number" class="form-control" min="0" step="0.1" ng-model="formula.lmenor">
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Validar</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="formula4()">Validar</button>
         </div>
       </div>
     </div>

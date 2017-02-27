@@ -191,13 +191,13 @@
                   </tr>
                   <tr>
                        <td>AÑO DE FABRICACION:</td>
-                      <td><input type="number" class="form-control" ng-model="descri_equipo.anio_fabri" ></td>                      
-                      <td><input type="number" class="form-control" ng-model="descri_equipo2.anio_fabri" ></td>
+                      <td><input type="number" min="0" step="0.1"  class="form-control" ng-model="descri_equipo.anio_fabri" ></td>                      
+                      <td><input type="number" min="0" step="0.1"  class="form-control" ng-model="descri_equipo2.anio_fabri" ></td>
                   </tr>
                   <tr>
                        <td>AÑO DE INSTALACION:</td>
-                      <td><input type="number" class="form-control" ng-model="descri_equipo.anio_insta" ></td>                      
-                      <td><input type="number" class="form-control" ng-model="descri_equipo2.anio_insta" ></td>
+                      <td><input type="number" min="0" step="0.1"  class="form-control" ng-model="descri_equipo.anio_insta" ></td>                      
+                      <td><input type="number" min="0" step="0.1"  class="form-control" ng-model="descri_equipo2.anio_insta" ></td>
                   </tr>
               </table> 
              </div>           
@@ -279,17 +279,17 @@
                   <tr>
                       <td colspan="2">ALINEACION LUZ-HAZ DE RADIACION:</td>
                       <td></td>
-                      <td><input type="number" class="form-control" ng-blur="alineacion()" ng-model="formato.radiacion" ></td>  
+                      <td><input type="number" min="0" step="0.1"  class="form-control" ng-blur="alineacion()" ng-model="formato.radiacion" ></td>  
                   </tr>
                   <tr>
                       <td colspan="2">DESPLAZAMIENTO DE LA CAMILLA:</td>
                       <td></td>
-                      <td><input type="number" class="form-control"  ng-model="formato.camilla" ></td>  
+                      <td><input type="number" min="0" step="0.1"  class="form-control"  ng-model="formato.camilla" ></td>  
                   </tr> 
                   <tr>
                       <td colspan="2">EXACTITUD DEL ANGULO DE ESTATIVO :</td>
                       <td></td>
-                      <td><input type="number" class="form-control" ng-blur="exactidtuAngulo()" ng-model="formato.exaAnguloEstatio" ></td>  
+                      <td><input type="number" min="0" step="0.1"  class="form-control" ng-blur="exactidtuAngulo()" ng-model="formato.exaAnguloEstatio" ></td>  
                   </tr>  
                   
                   
@@ -302,8 +302,8 @@
                   </tr>
                   <tr>
                       <td >ESPESOR EFECTIVO DE CORTE:</td>
-                      <td><input type="number" class="form-control" ng-blur="espesorEfectivoCorte()" ng-model="formato.espesornnominal" ></td> 
-                      <td><input type="number" class="form-control"  ng-model="formato.espesormedio" ></td>  
+                      <td><input type="number" min="0" step="0.1"  class="form-control" ng-blur="espesorEfectivoCorte()" ng-model="formato.espesornnominal" ></td> 
+                      <td><input type="number" min="0" step="0.1"  class="form-control"  ng-model="formato.espesormedio" ></td>  
                   </tr> 
                 </table>
              </div>           
@@ -327,8 +327,8 @@
 
                   <tr>
                       <td>EXACTITUD DE LA TENSION:</td>
-                      <td><input type="number" class="form-control"  ng-model="formato.kvnominal" ></td>  
-                      <td><input type="number" class="form-control"  ng-model="formato.kvmedio" ></td>  
+                      <td><input type="number" min="0" step="0.1"  class="form-control"  ng-model="formato.kvnominal" ></td>  
+                      <td><input type="number" min="0" step="0.1"  class="form-control"  ng-model="formato.kvmedio" ></td>  
                   </tr>
                    <tr>
                       <td></td>
@@ -337,8 +337,8 @@
                   </tr>
                   <tr>
                       <td>REPETIBILIDAD DE LA TENSION:</td>
-                      <td><input type="number" class="form-control"  ng-model="formato.kv1" ></td> 
-                      <td><input type="number" class="form-control"  ng-model="formato.kv2" ></td>   
+                      <td><input type="number" min="0" step="0.1"  class="form-control"  ng-model="formato.kv1" ></td> 
+                      <td><input type="number" min="0" step="0.1"  class="form-control"  ng-model="formato.kv2" ></td>   
                   </tr>
                   <tr>
                       <td></td>

@@ -207,13 +207,13 @@
                   </tr>
                   <tr>
                        <td>AÑO DE FABRICACION:</td>
-                      <td><input type="number" class="form-control" string-to-number ng-model="descri_equipo.anio_fabri" ></td>                      
-                      <td><input type="number" class="form-control" string-to-number ng-model="descri_equipo2.anio_fabri" ></td>
+                      <td><input type="number" min="0" step="0.1"  class="form-control" string-to-number ng-model="descri_equipo.anio_fabri" ></td>                      
+                      <td><input type="number" min="0" step="0.1"  class="form-control" string-to-number ng-model="descri_equipo2.anio_fabri" ></td>
                   </tr>
                   <tr>
                        <td>AÑO DE INSTALACION:</td>
-                      <td><input type="number" class="form-control" string-to-number ng-model="descri_equipo.anio_insta" ></td>                      
-                      <td><input type="number" class="form-control" string-to-number ng-model="descri_equipo2.anio_insta" ></td>
+                      <td><input type="number" min="0" step="0.1"  class="form-control" string-to-number ng-model="descri_equipo.anio_insta" ></td>                      
+                      <td><input type="number" min="0" step="0.1"  class="form-control" string-to-number ng-model="descri_equipo2.anio_insta" ></td>
                   </tr>
               </table> 
              </div>           
@@ -293,7 +293,7 @@
 
                   <tr>
                       <td>COINCIDENCIA DEL CAMPO DE RADIACION CON EL INTENSIFICADOR DE IMAGEN:</td>
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato.campradiacion" ></td>  
+                      <td><input type="number" min="0" step="0.1"  class="form-control" string-to-number ng-model="formato.campradiacion" ></td>  
                   </tr>
                   
                   
@@ -319,8 +319,8 @@
 
                   <tr>
                       <td>EXACTITUD DE LA TENSION:</td>
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato.kvnominal" ></td>  
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato.kvmedio" ></td>  
+                      <td><input type="number" min="0" step="0.1"  class="form-control" string-to-number ng-model="formato.kvnominal" ></td>  
+                      <td><input type="number" min="0" step="0.1"  class="form-control" string-to-number ng-model="formato.kvmedio" ></td>  
                   </tr>
                    <tr>
                       <td></td>
@@ -329,8 +329,8 @@
                   </tr>
                   <tr>
                       <td>REPETIBILIDAD DE LA TENSION:</td>
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato.kv1" ></td> 
-                      <td><input type="number" class="form-control" string-to-number ng-model="formato.kv2" ></td>   
+                      <td><input type="number" min="0" step="0.1"  class="form-control" string-to-number ng-model="formato.kv1" ></td> 
+                      <td><input type="number" min="0" step="0.1"  class="form-control" string-to-number ng-model="formato.kv2" ></td>   
                   </tr>
                   <tr>
                       <td></td>
@@ -339,11 +339,11 @@
                   </tr>
                   <tr>
                       <td>FILTRACION (mm):</td>
-                      <td colspan="2"><input type="number" class="form-control" string-to-number ng-model="formato.filtracion" ></td>  
+                      <td colspan="2"><input type="number" min="0" step="0.1"  class="form-control" string-to-number ng-model="formato.filtracion" ></td>  
                   </tr>
                   <tr>
                       <td>DISTORSIÓN GEOMETRICA:</td>
-                      <td colspan="2"><input type="number" class="form-control" string-to-number ng-model="formato.distorGeo" ></td>  
+                      <td colspan="2"><input type="number" min="0" step="0.1"  class="form-control" string-to-number ng-model="formato.distorGeo" ></td>  
                   </tr>
                   
                   

@@ -17,6 +17,7 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
     $scope.usuario={};
     $scope.formato.fecha=new Date();
     $scope.datoBuscado;
+    $scope.formula={};
     
      $http.get('/aleph/php/?a=getidCorrelativo').then(function(r){            
                 $scope.formato.nro_informe=r.data;
@@ -111,6 +112,63 @@ empleadoControllers.controller('EmpleadoListadoCtrl', ['$location','$scope', '$h
       if($scope.formato.exaAnguloEstatio <3){
         }else{alert("Error: el valor debe ser <3 !!");$scope.formato.exaAnguloEstatio=0;}
     }
+
+    $scope.formula1=function(){
+        $scope.v1=100*(($scope.formula.kvind-$scope.formula.kvmed)/$scope.formula.kvind);
+        $scope.v2=100*(($scope.formula.kav1-$scope.formula.kav1)/(($scope.formula.kav1+$scope.formula.kav1)/2));
+        $scope.v3=100*(($scope.formula.lmayor-$scope.formula.lmenor)/(($scope.formula.lmayor+$scope.formula.lmenor)/2));
+        //alert($scope.v1+";"+$scope.v2+";"+$scope.v3);
+        if($scope.v1 < 10 && $scope.v2 < 10 && $scope.v3 < 10){
+            $window.location.href="#/rx_dental"; 
+        }else{
+           alert("Error: datos ingresado incorrectos, por favor verificar los datos ingresados gracias!!");
+        }
+    }
+    $scope.formula2=function(){
+        $scope.v1=100*(($scope.formula.kvind-$scope.formula.kvmed)/$scope.formula.kvind);
+        $scope.v2=100*(($scope.formula.kav1-$scope.formula.kav1)/(($scope.formula.kav1+$scope.formula.kav1)/2));
+        $scope.v3=100*(($scope.formula.lmayor-$scope.formula.lmenor)/(($scope.formula.lmayor+$scope.formula.lmenor)/2));
+        //alert($scope.v1+";"+$scope.v2+";"+$scope.v3);
+        if($scope.v1 < 5 && $scope.v2 < 3 && $scope.v3 < 5){
+            $window.location.href="#/rx_tomografia/create"; 
+        }else{
+           alert("Error: datos ingresado incorrectos, por favor verificar los datos ingresados gracias!!");
+        }
+    }
+    $scope.formula3=function(){
+        $scope.v1=100*(($scope.formula.kvind-$scope.formula.kvmed)/$scope.formula.kvind);
+        $scope.v2=100*(($scope.formula.kav1-$scope.formula.kav1)/(($scope.formula.kav1+$scope.formula.kav1)/2));
+        $scope.v3=100*(($scope.formula.lmayor-$scope.formula.lmenor)/(($scope.formula.lmayor+$scope.formula.lmenor)/2));
+        //alert($scope.v1+";"+$scope.v2+";"+$scope.v3);
+        if($scope.v1 < 1 && $scope.v2 < 0.5 && $scope.v3 < 5){
+            $window.location.href="#/rx_mamografia/create"; 
+        }else{
+           alert("Error: datos ingresado incorrectos, por favor verificar los datos ingresados gracias!!");
+        }
+    }
+    $scope.formula4=function(){
+        $scope.v1=100*(($scope.formula.kvind-$scope.formula.kvmed)/$scope.formula.kvind);
+        $scope.v2=100*(($scope.formula.kav1-$scope.formula.kav1)/(($scope.formula.kav1+$scope.formula.kav1)/2));
+        $scope.v3=100*(($scope.formula.lmayor-$scope.formula.lmenor)/(($scope.formula.lmayor+$scope.formula.lmenor)/2));
+        //alert($scope.v1+";"+$scope.v2+";"+$scope.v3);
+        if($scope.v1 < 5 && $scope.v2 < 3 && $scope.v3 < 10){
+            $window.location.href="#/rx_fluroscopico/create"; 
+        }else{
+           alert("Error: datos ingresado incorrectos, por favor verificar los datos ingresados gracias!!");
+        }
+    }
+    $scope.formula5=function(){
+        $scope.v1=100*(($scope.formula.kvind-$scope.formula.kvmed)/$scope.formula.kvind);
+        $scope.v2=100*(($scope.formula.kav1-$scope.formula.kav1)/(($scope.formula.kav1+$scope.formula.kav1)/2));
+        $scope.v3=100*(($scope.formula.lmayor-$scope.formula.lmenor)/(($scope.formula.lmayor+$scope.formula.lmenor)/2));
+        //alert($scope.v1+";"+$scope.v2+";"+$scope.v3);
+        if($scope.v1 < 10 && $scope.v2 < 5 && $scope.v3 < 10){
+            $window.location.href="#/rx_Convencional/create"; 
+        }else{
+           alert("Error: datos ingresado incorrectos, por favor verificar los datos ingresados gracias!!");
+        }
+    }
+    
     $scope.validar=function(){$scope.formato.esta_meca=!$scope.formato1.esta_meca;}
     $scope.validar1=function(){$scope.formato1.esta_meca=!$scope.formato.esta_meca;}
 

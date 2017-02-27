@@ -20,9 +20,9 @@
   <div class="container">
   <div class="row">
          <div class="col-md-7">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mdDesin" style="margin-top:5px; margin-left:5px;">
-              Ingresar Datos
-            </button>
+        
+                  <a href="#/rx_Desintometria/create" class="btn btn-success" style="margin-top:5px; margin-left:5px;">Crear Nuevo</a>
+         
          </div>
         <div class="col-md-5">
             <div id="custom-search-input">
@@ -55,9 +55,9 @@
               </thead>
               <tbody>
               	<tr ng-repeat="item in listaFormato.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
-              		<td>{{index+1}}</td>
+              		<td>{{$index+1}}</td>
               		<td>{{item.nro_informe}}</td>
-              		<td>{{item.fecha}}</td>
+              		<td>{{item.fecha | date:'dd/MM/yyyy'}}</td>
               		<td>{{item.observacion}}</td>
               		<td>{{item.realizado_por}}</td>
               		<td>{{item.razon_social}}</td>
