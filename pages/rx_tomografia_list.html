@@ -19,7 +19,9 @@
     <div class="container">
   <div class="row">
          <div class="col-md-7">
-                 <a href="#/rx_tomografia/create" class="btn btn-success" style="margin-top:5px; margin-left:5px;">Crear Nuevo</a>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mdTomo" style="margin-top:5px; margin-left:5px;">
+              Ingresar Datos
+            </button>
          </div>
         <div class="col-md-5">
             <div id="custom-search-input">
@@ -93,4 +95,86 @@
     </div>
     </div>
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="mdTomo" tabindex="-1" role="dialog" aria-labelledby="mdTit">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="mdTit">INGRESAR PARAMETROS RX-TOMOGRAFIA</h4>
+        </div>
+        <div class="modal-body">
+          <div class="col-sm-12">
+              
+            <p class="titFormatos">CALIDAD DE HAZ</p>
+
+            <div class="cabFrmLogin">
+              <p class="titFormatos">EXACTITUD DE LA TENSION</p>
+            </div>
+
+            <div class="col-sm-3 form-group">
+                <label>KV<sub>ind</sub>*:</label>
+            </div>
+
+            <div class="col-sm-9 form-group">
+              <input type="text" class="form-control" ng-model="formula.kvind">
+            </div>
+
+            <div class="col-sm-3 form-group">
+                <label>KV<sub>med</sub>*:</label>
+            </div>
+
+            <div class="col-sm-9 form-group">
+              <input type="text" class="form-control" ng-model="formula.kvmed">
+            </div>
+
+            <div class="cabFrmLogin">
+              <p class="titFormatos">REPETIBILIDAD DE LA TENSION</p>
+            </div>
+
+            <div class="col-sm-3 form-group">
+                <label>KV<sub>1</sub>*:</label>
+            </div>
+
+            <div class="col-sm-9 form-group">
+              <input type="text" class="form-control" ng-model="formula.kvind">
+            </div>
+
+            <div class="col-sm-3 form-group">
+                <label>KV<sub>2</sub>*:</label>
+            </div>
+
+            <div class="col-sm-9 form-group">
+              <input type="text" class="form-control" ng-model="formula.kvmed">
+            </div>
+
+            <div class="cabFrmLogin">
+              <p class="titFormatos">RENDIMIENTO</p>
+            </div>
+
+            <div class="col-sm-3 form-group">
+              <label>L<sub>mayor</sub>*:</label>
+            </div>
+
+            <div class="col-sm-9 form-group">
+              <input type="text" class="form-control" ng-model="formula.lmayor">
+            </div>
+
+            <div class="col-sm-3 form-group">
+                <label>L<sub>menor</sub>*:</label>
+            </div>
+
+            <div class="col-sm-9 form-group">
+              <input type="text" class="form-control" ng-model="formula.lmenor">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Validar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </form>
