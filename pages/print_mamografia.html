@@ -203,52 +203,48 @@
           <div class="col-sm-12 bodFrmLogin">
          
            <div class="col-sm-12 form-group">
-              <table class="table table-bordered">
-                  
-                  <tr>
-                      <td>CARACTERISTICA</td>
-                      <td>SI</td>                      
-                      <td>NO</td>
-                  </tr>
+                <table class="table table-bordered">    
+            <tr>
+                <td colspan="3" style="text-align:center;">CARACTERISTICA</td>
+            </tr>
 
-                  <tr><label ng-show="false" ng-if="formato.esta_meca==0">{{formato1.esta_meca=1}}</label>
-                      <td>ESTABILIDAD MECANICA:</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar1()" ng-model="formato.esta_meca" ></td>                    
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar()" ng-model="formato1.esta_meca" ></td>
-                  </tr>
-                  <tr><label ng-show="false" ng-if="formato.mov_adec_equi==0">{{formato1.mov_adec_equi=1}}</label>
-                      <td>MOVIMIENTOS ADECUADOS DEL EQUIPO:</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar2()" ng-model="formato.mov_adec_equi" ></td>                   
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar3()" ng-model="formato1.mov_adec_equi" ></td>
-                  </tr>
-                  <tr><label ng-show="false" ng-if="formato.esta_cable==0">{{formato1.esta_cable=1}}</label>
-                       <td>BUEN ESTADO DE LOS CABLES (ALTA TENSION Y ALIMENTACION):</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar4()" ng-model="formato.esta_cable" ></td>                      
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar5()" ng-model="formato1.esta_cable" ></td>
-                  </tr>
-                  <tr><label ng-show="false" ng-if="formato.ind_punto_focal==0">{{formato1.ind_punto_focal=1}}</label>
-                       <td>INDICADOR DEL PUNTO FOCAL:</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar6()" ng-model="formato.ind_punto_focal" ></td>                      
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar7()" ng-model="formato1.ind_punto_focal" ></td>
-                  </tr>
-                  <tr><label ng-show="false" ng-if="formato.funci_indicador==0">{{formato1.funci_indicador=1}}</label>
-                       <td>FUNCIONAMIENTO DE LOS INDICADORES DE TECNICA DE EXPOSICION EN EL PANEL DE CONTROL
-:</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar8()" ng-model="formato.funci_indicador" ></td>                      
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar9()" ng-model="formato1.funci_indicador" ></td>
-                  </tr>
-                  
-                  <tr><label ng-show="false" ng-if="formato.interrup_expo==0">{{formato1.interrup_expo=1}}</label>
-                       <td>INTERRUPTOR DE EXPOSICION TIPO HOMBRE MUERTO:</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar10()" ng-model="formato.interrup_expo" ></td>                      
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar11()" ng-model="formato1.interrup_expo" ></td>
-                  </tr>
-                  <tr><label ng-show="false" ng-if="formato.barrera_protect==0">{{formato1.barrera_protect=1}}</label>
-                       <td>BARRERA PROTECTORA PARA EL OPERADOR:</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar12()" ng-model="formato.barrera_protect" ></td>                      
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar13()" ng-model="formato1.barrera_protect" ></td>
-                  </tr>
-              </table> 
+            <tr><label ng-show="false" ng-if="formato.esta_meca==0">{{formato1.esta_meca=1}}</label>
+                <td>ESTABILIDAD MECANICA:</td>
+                <td ng-if="formato.esta_meca==0">NO</td>    
+                <td ng-if="formato.esta_meca==1">SI</td>  
+            </tr>
+            <tr><label ng-show="false" ng-if="formato.mov_adec_equi==0">{{formato1.mov_adec_equi=1}}</label>
+                <td>MOVIMIENTOS ADECUADOS DEL EQUIPO:</td>
+                <td ng-if="formato.mov_adec_equi==0">NO</td>    
+                <td ng-if="formato.mov_adec_equi==1">SI</td>  
+            </tr>
+            <tr><label ng-show="false" ng-if="formato.esta_cable==0">{{formato1.esta_cable=1}}</label>
+                 <td>BUEN ESTADO DE LOS CABLES (ALTA TENSION Y ALIMENTACION):</td>
+                 <td ng-if="formato.esta_cable==0">NO</td>    
+                 <td ng-if="formato.esta_cable==1">SI</td> 
+            </tr>
+            <tr><label ng-show="false" ng-if="formato.ind_punto_focal==0">{{formato1.ind_punto_focal=1}}</label>
+                 <td>INDICADOR DEL PUNTO FOCAL:</td>
+                 <td ng-if="formato.ind_punto_focal==0">NO</td>    
+                 <td ng-if="formato.ind_punto_focal==1">SI</td>         
+            </tr>
+            <tr><label ng-show="false" ng-if="formato.funci_indicador==0">{{formato1.funci_indicador=1}}</label>
+                 <td>FUNCIONAMIENTO DE LOS INDICADORES DE TECNICA DE EXPOSICION EN EL PANEL DE CONTROL: </td>
+                 <td ng-if="formato.funci_indicador==0">NO</td>    
+                 <td ng-if="formato.funci_indicador==1">SI</td>
+            </tr>
+            
+            <tr><label ng-show="false" ng-if="formato.interrup_expo==0">{{formato1.interrup_expo=1}}</label>
+                 <td>INTERRUPTOR DE EXPOSICION TIPO HOMBRE MUERTO:</td>
+                  <td ng-if="formato.interrup_expo==0">NO</td>    
+                  <td ng-if="formato.interrup_expo==1">SI</td>               
+            </tr>
+            <tr><label ng-show="false" ng-if="formato.barrera_protect==0">{{formato1.barrera_protect=1}}</label>
+                 <td>BARRERA PROTECTORA PARA EL OPERADOR:</td>
+                <td ng-if="formato.barrera_protect==0">NO</td>    
+                <td ng-if="formato.barrera_protect==1">SI</td> 
+            </tr>
+          </table>
              </div>           
                     
           </div>
