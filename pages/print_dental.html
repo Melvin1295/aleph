@@ -20,272 +20,140 @@
                   </div></div>
           <div class="row">
             <div class="cabFrmLogin">
-              <p class="titFormatos">FORMATO PARA EL CONTROL DE CALIDAD A EQUIPO DE RAYOS X DENTAL</p>
+              <div style="height: 20px"></div>
+              <p style="text-align: right; padding-right: 30px;">N°<label>{{formato.nro_informe}}</label>-CC</p>
+              <p class="titFormatos">INFORME DE CONTROL DE CALIDAD<br/>
+                EQUIPO DE RAYOS X DENTAL</p>
             </div>
           </div>
           <!-- Cuerpo del formulario -->
           <div class="col-sm-12 bodFrmLogin">
+          <p>1. FECHA: <LABEL>{{fecha2 | date:'dd/MM/yyyy'}}</LABEL> </p>
+          <br/>
+          <p>2. DATOS DEL SOLICITANTE </p>
+          <p style="padding-left: 20px">Razón social: <label>{{cliente.razon_social}}</label> </p>
+          <p style="padding-left: 20px">RUC: <label>{{cliente.ruc}}</label></p>
+          <p style="padding-left: 20px">Dirección: <label>{{cliente.direccion}}</label></p>
+          <p style="padding-left: 20px">Teléfono: <label>{{cliente.telefono}}</label></p>
+          <p style="padding-left: 20px">Email: <label>{{cliente.email}}</label></p>
+          <br/>
+          <p>3. UBICACIÓN DE LA INSTALACIÓN </p>
+          <p style="padding-left: 20px">Dirección: <label>{{cliente.ubicacion}}</label></p>
+          <br/>
+          <p>4. DATOS DEL EQUIPO </p>
+          <table class="table table-bordered"> 
+            <tr>
+                <td></td>
+                <td>FIJO</td>
+                <td><input type="checkbox"  ng-true-value="1" ng-false-value="0" int-to-boolean ng-model="formato.fijo" ></td>
+                <td></td>
+                <td>PERIAPICAL</td>
+                <td><input type="checkbox"  ng-true-value="1" ng-false-value="0" int-to-boolean ng-model="formato.periapical" ></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>RODANTE</td>
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.rodante" ></td>
+                <td></td>
+                <td>PANORAMICO</td>
+                <td><input type="checkbox"  ng-true-value="1" ng-false-value="0" int-to-boolean ng-model="formato.panoramico" ></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>PORTATIL</td>
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.portatil" ></td>
+                <td></td>
+                <td>CEFALOMETRICO</td>
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-model="formato.cefalometrico" ></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>UNIDAD MOVIL</td>
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.uni_movil" ></td>
+                <td></td>
+                <td>TOMOGRAFICO</td>
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.tomografo" ></td>
+            </tr>
+          </table> 
+          <br/>
+          <p>5. PROTOCOLO EMPLEADO: <label>Protocolo Español de Control de Calidad en Radiodiagnóstico</label></p>
+          <br/>
+          <p>6. EQUIPO EMPLEADO</p>
+          <table class="table" style="border: 0; ">
+            <tr>
+                <td></td>
+                <td>CONSOLA | GENERADOR</td>                      
+                <td>TUBO</td>
+            </tr>
+            <tr>
+                <td>MARCA:</td>
+                <td>{{descri_equipo.marca}}</td>                      
+                <td>{{descri_equipo2.marca}}</td>
+            </tr>
+            <tr>
+                <td>MODELO:</td>
+                <td>{{descri_equipo.modelo}}</td>                      
+                <td>{{descri_equipo2.modelo}}</td>
+            </tr>
+            <tr>
+                 <td>N° SERIE:</td>
+                <td>{{descri_equipo.nro_serie}}</td>                      
+                <td>{{descri_equipo2.nro_serie}}</td>
+            </tr>
+          </table>
+          <br/>
+          <p>7. RESULTADOS</p>
+          <p>7.1 INSPECCIÓN FISICA</p>
+          <table class="table table-bordered">    
+            <tr>
+                <td>CARACTERISTICA</td>
+                <td>SI</td>                      
+                <td>NO</td>
+            </tr>
 
-            <table class="table table-bordered">
-               <thead>
-                 <tr>
-                   <th>
-                       Informe N°
-                   </th>
-                   <th>
-                       Certificado N°
-                   </th>
-                   <th>
-                       Fecha
-                   </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{{formato.nro_informe}}</td>
-                    <td>{{formato.nro_certificado}}</td>
-                    <td>{{fecha2}}</td>
-                  </tr>
-                </tbody>
-            </table>
+            <tr><label ng-show="false" ng-if="formato.esta_meca==0">{{formato1.esta_meca=1}}</label>
+                <td>ESTABILIDAD MECANICA:</td>
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar1()" ng-model="formato.esta_meca" ></td>                    
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar()" ng-model="formato1.esta_meca" ></td>
+            </tr>
+            <tr><label ng-show="false" ng-if="formato.mov_adec_equi==0">{{formato1.mov_adec_equi=1}}</label>
+                <td>MOVIMIENTOS ADECUADOS DEL EQUIPO:</td>
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar2()" ng-model="formato.mov_adec_equi" ></td>                   
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar3()" ng-model="formato1.mov_adec_equi" ></td>
+            </tr>
+            <tr><label ng-show="false" ng-if="formato.esta_cable==0">{{formato1.esta_cable=1}}</label>
+                 <td>BUEN ESTADO DE LOS CABLES (ALTA TENSION Y ALIMENTACION):</td>
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar4()" ng-model="formato.esta_cable" ></td>                      
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar5()" ng-model="formato1.esta_cable" ></td>
+            </tr>
+            <tr><label ng-show="false" ng-if="formato.ind_punto_focal==0">{{formato1.ind_punto_focal=1}}</label>
+                 <td>INDICADOR DEL PUNTO FOCAL:</td>
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar6()" ng-model="formato.ind_punto_focal" ></td>                      
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar7()" ng-model="formato1.ind_punto_focal" ></td>
+            </tr>
+            <tr><label ng-show="false" ng-if="formato.funci_indicador==0">{{formato1.funci_indicador=1}}</label>
+                 <td>FUNCIONAMIENTO DE LOS INDICADORES DE TECNICA DE EXPOSICION EN EL PANEL DE CONTROL: </td>
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar8()" ng-model="formato.funci_indicador" ></td>                      
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar9()" ng-model="formato1.funci_indicador" ></td>
+            </tr>
             
-            </div>
-       </div>
-            <!-- Boton Login de formulario -->
-            
-            <!-- Fin de boton Login de formulario -->
-          </div>
-          <div class="row">
-            <div class="cabFrmLogin">
-              <p class="titFormatos">DATOS DEL CONTRIBUYENTE</p>
-            </div>
-          </div>
-          <!-- Cuerpo del formulario -->
-          <div class="col-sm-12 bodFrmLogin">
-             <table class="table table-bordered">
-               <thead>
-                 <tr>
-                   <th>
-                       ID DEL CLIENTE
-                   </th>
-                   <th style="width:250px;">
-                       RAZON SOCIAL
-                   </th>
-                   <th>
-                       RUC Nº
-                   </th>
-                   <th>
-                       DIRECCION
-                   </th>
-                   <th>
-                       TELEFONO
-                   </th>
-                   <th>
-                       E-MAIL
-                   </th>
-                   <th>
-                       UBICACIÓN DE LA INSTALACION
-                   </th>
-                 </tr>
-               </thead>
-               <tbody>
-                 <tr>
-                   <td>
-                      {{cliente.codigo}}
-                   </td>
-                   <td>
-                      {{cliente.razon_social}}
-                   </td>
-                   <td>
-                      {{cliente.ruc}}
-                   </td>
-                   <td>
-                      {{cliente.direccion}}
-                   </td>
-                   <td>
-                     {{cliente.telefono}}
-                   </td>
-                   <td>
-                     {{cliente.email}}
-                   </td>
-                   <td>
-                     {{cliente.ubicacion}}
-                   </td>
-                 </tr>
-               </tbody>
-             </table>
-
-          </div>
-           <div class="row">
-            <div class="cabFrmLogin">
-              <p class="titFormatos">DATOS DEL EQUIPO</p>
-            </div>
-          </div>
-         <div class="col-sm-12 bodFrmLogin">
-         <div class="col-sm-3 form-group">
-           <label>TIPO:</label>
-         </div>
-           <div class="col-sm-9 form-group">
-              <table class="table table-bordered">
-                  
-                  <tr>
-                      <td></td>
-                      <td>FIJO</td>
-                      <td><input type="checkbox"  ng-true-value="1" ng-false-value="0" int-to-boolean ng-model="formato.fijo" ></td>
-                      <td></td>
-                      <td>PERIAPICAL</td>
-                      <td><input type="checkbox"  ng-true-value="1" ng-false-value="0" int-to-boolean ng-model="formato.periapical" ></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>RODANTE</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.rodante" ></td>
-                      <td></td>
-                      <td>PANORAMICO</td>
-                      <td><input type="checkbox"  ng-true-value="1" ng-false-value="0" int-to-boolean ng-model="formato.panoramico" ></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>PORTATIL</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.portatil" ></td>
-                      <td></td>
-                      <td>CEFALOMETRICO</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-model="formato.cefalometrico" ></td>
-                  </tr>
-                  <tr>
-                      <td></td>
-                      <td>UNIDAD MOVIL</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.uni_movil" ></td>
-                      <td></td>
-                      <td>TOMOGRAFICO</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean  ng-model="formato.tomografo" ></td>
-                  </tr>
-              </table> 
-             </div>
-
-                    
-          </div>
+            <tr><label ng-show="false" ng-if="formato.interrup_expo==0">{{formato1.interrup_expo=1}}</label>
+                 <td>INTERRUPTOR DE EXPOSICION TIPO HOMBRE MUERTO:</td>
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar10()" ng-model="formato.interrup_expo" ></td>                      
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar11()" ng-model="formato1.interrup_expo" ></td>
+            </tr>
+            <tr><label ng-show="false" ng-if="formato.barrera_protect==0">{{formato1.barrera_protect=1}}</label>
+                 <td>BARRERA PROTECTORA PARA EL OPERADOR:</td>
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar12()" ng-model="formato.barrera_protect" ></td>                      
+                <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar13()" ng-model="formato1.barrera_protect" ></td>
+            </tr>
+          </table>
+          <br/>
+          <p>7.2 PRUEBAS</p>
           <div class="col-sm-12 bodFrmLogin">
          
            <div class="col-sm-12 form-group">
               <table class="table table-bordered">
-                  
-                  <tr>
-                      <td></td>
-                      <td>CONSOLA | GENERADOR</td>                      
-                      <td>TUBO</td>
-                  </tr>
-                  <tr>
-                      <td>MARCA:</td>
-                      <td>{{descri_equipo.marca}}</td>                      
-                      <td>{{descri_equipo2.marca}}</td>
-                  </tr>
-                  <tr>
-                      <td>MODELO:</td>
-                      <td>{{descri_equipo.modelo}}</td>                      
-                      <td>{{descri_equipo2.modelo}}</td>
-                  </tr>
-                  <tr>
-                       <td>N° SERIE:</td>
-                      <td>{{descri_equipo.nro_serie}}</td>                      
-                      <td>{{descri_equipo2.nro_serie}}</td>
-                  </tr>
-                  <tr>
-                       <td>Kv MAX:</td>
-                      <td>{{descri_equipo.kvp_max}}</td>                      
-                      <td>{{descri_equipo2.kvp_max}}</td>
-                  </tr>
-                  <tr>
-                       <td>Ma/Mas MAX:</td>
-                      <td>{{descri_equipo.max}}</td>                      
-                      <td>{{descri_equipo2.max}}</td>
-                  </tr>
-                  <tr>
-                       <td>AÑO DE FABRICACION:</td>
-                      <td>{{descri_equipo.anio_fabri}}</td>                      
-                      <td>{{descri_equipo2.anio_fabri}}</td>
-                  </tr>
-                  <tr>
-                       <td>AÑO DE INSTALACION:</td>
-                      <td>{{descri_equipo.anio_insta}}</td>                      
-                      <td>{{descri_equipo2.anio_insta}}</td>
-                  </tr>
-              </table> 
-             </div>           
-                    
-          </div>
-          <div class="row">
-            <div class="cabFrmLogin">
-              <p class="titFormatos">INDICADORES GENERALES DE FUNCIONAMIENTO Y SEGURIDAD</p>
-            </div>
-          </div>
-          <div class="col-sm-12 bodFrmLogin">
-         
-           <div class="col-sm-12 form-group">
-              <table class="table table-bordered">
-                  
-                  <tr>
-                      <td>CARACTERISTICA</td>
-                      <td>SI</td>                      
-                      <td>NO</td>
-                  </tr>
-
-                  <tr><label ng-show="false" ng-if="formato.esta_meca==0">{{formato1.esta_meca=1}}</label>
-                      <td>ESTABILIDAD MECANICA:</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar1()" ng-model="formato.esta_meca" ></td>                    
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar()" ng-model="formato1.esta_meca" ></td>
-                  </tr>
-                  <tr><label ng-show="false" ng-if="formato.mov_adec_equi==0">{{formato1.mov_adec_equi=1}}</label>
-                      <td>MOVIMIENTOS ADECUADOS DEL EQUIPO:</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar2()" ng-model="formato.mov_adec_equi" ></td>                   
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar3()" ng-model="formato1.mov_adec_equi" ></td>
-                  </tr>
-                  <tr><label ng-show="false" ng-if="formato.esta_cable==0">{{formato1.esta_cable=1}}</label>
-                       <td>BUEN ESTADO DE LOS CABLES (ALTA TENSION Y ALIMENTACION):</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar4()" ng-model="formato.esta_cable" ></td>                      
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar5()" ng-model="formato1.esta_cable" ></td>
-                  </tr>
-                  <tr><label ng-show="false" ng-if="formato.ind_punto_focal==0">{{formato1.ind_punto_focal=1}}</label>
-                       <td>INDICADOR DEL PUNTO FOCAL:</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar6()" ng-model="formato.ind_punto_focal" ></td>                      
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar7()" ng-model="formato1.ind_punto_focal" ></td>
-                  </tr>
-                  <tr><label ng-show="false" ng-if="formato.funci_indicador==0">{{formato1.funci_indicador=1}}</label>
-                       <td>FUNCIONAMIENTO DE LOS INDICADORES DE TECNICA DE EXPOSICION EN EL PANEL DE CONTROL
-:</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar8()" ng-model="formato.funci_indicador" ></td>                      
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar9()" ng-model="formato1.funci_indicador" ></td>
-                  </tr>
-                  
-                  <tr><label ng-show="false" ng-if="formato.interrup_expo==0">{{formato1.interrup_expo=1}}</label>
-                       <td>INTERRUPTOR DE EXPOSICION TIPO HOMBRE MUERTO:</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar10()" ng-model="formato.interrup_expo" ></td>                      
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar11()" ng-model="formato1.interrup_expo" ></td>
-                  </tr>
-                  <tr><label ng-show="false" ng-if="formato.barrera_protect==0">{{formato1.barrera_protect=1}}</label>
-                       <td>BARRERA PROTECTORA PARA EL OPERADOR:</td>
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar12()" ng-model="formato.barrera_protect" ></td>                      
-                      <td><input type="checkbox" ng-true-value="1" ng-false-value="0" int-to-boolean ng-click="validar13()" ng-model="formato1.barrera_protect" ></td>
-                  </tr>
-              </table> 
-             </div>           
-                    
-          </div>
-          <div class="row">
-            <div class="cabFrmLogin">
-              <p class="titFormatos">PARAMETROS GEOMETRICOS</p>
-            </div>
-          </div>
-          <div class="col-sm-12 bodFrmLogin">
-         
-           <div class="col-sm-12 form-group">
-              <table class="table table-bordered">
-                  
-                  <tr>
-                      <td></td>
-                      <td>RESULTADOS</td> 
-                  </tr>
-
                   <tr>
                       <td>MINIMA DISTANCIA FOCO-PIEL:</td>
                       <td>{{formato.foco_piel}}</td>  
@@ -443,7 +311,7 @@
           </div>
           <div class="row">
             <div class="cabFrmLogin">
-              <p class="titFormatos">PARA METROS DOSIMETRICOS</p>
+              <p class="titFormatos">PARAMETROS DOSIMETRICOS</p>
             </div>
           </div>
           <div class="col-sm-12 bodFrmLogin">
@@ -468,41 +336,108 @@
              </div>           
                     
           </div>
-          <div class="col-sm-12 bodFrmLogin">
-         
-           <div class="col-sm-3 form-group">
-                <label>OBSERVACIONES:</label>
-             </div>           
-          
-              <div class="col-sm-9 form-group">
-                  <textarea ng-model="formato.observacion" class="form-control"></textarea>
-             </div>           
-                    
-          </div>
-          <div class="col-sm-12 bodFrmLogin" >         
-                     
-                <table class="table table-bordered">
-                  
-                  <tr>
-                      <td></td>
-                      <td>NOMBRES</td> 
-                      <td>FIRMA</td> 
-                  </tr>
+          <br/>
+          <p>8. CONCLUSIONES</p>
+          <br/>
+          <p>9. RECOMENDACIONES</p>
+          <p style="padding-left: 20px"><label>{{formato.observacion}}</label></p>
+          <br/>
 
-                  <tr>
-                      <td>REALIZADO POR:</td>
-                      <td>{{formato.realizado_por}}</td>  
-                      <td></td>  
-                  </tr>
-                   
-                  
-              </table>      
+
+          <div style="height: 40px"></div>
+
+          <div class="col-sm-12 bodFrmLogin" >   
+            <div class="col-sm-6" style="text-align: center">
+              <p><label>{{formato.realizado_por}}</label><label style="padding-left: 250px">Rita Peñaherrera Rengifo</label></p>
+              <p><label>Lic. IPEN N° 0022-11</label><label style="padding-left: 200px">Gerente General</label></p>  
+            </div>
           </div>
-             
-         
+                      
           <!-- Fin cuerpo del formulario -->
         </div>
       </div>
     </div>
   </div></div>
+
+  <div class="saltopagina">
+    <div class="col-sm-12 borde">
+      <div class="row">
+        <div class="cabFrmLogin">
+          <div style="height: 150px"></div>
+          <p style="text-align: right; padding-right: 30px;">N°<label>{{formato.nro_certificado}}</label>-ALEPH/CC</p>
+          <p class="titFormatos">CERTIFICADO DE CONTROL DE CALIDAD<br/>
+            EQUIPO DE RAYOS X DENTAL</p>
+          <br/>
+          <p class="titFormatos">La empresa ALEPH GROUP certifica que el equipo de:</p>
+          <p class="titFormatos" style="text-align: center;"><label>{{cliente.razon_social}}</label></p>
+        </div>
+      </div>
+      <!-- Cuerpo del formulario -->
+      <div class="col-sm-12 bodFrmLogin">
+        <p>1. INFORME: <LABEL>N° {{formato.nro_informe}}</label>-CC</p></LABEL></p>
+        <br/>
+        <p>2. FECHA: <LABEL>{{fecha2 | date:'dd/MM/yyyy'}}</LABEL></p>
+        <br/>
+        <p>3. UBICACIÓN DE LA INSTALACIÓN </p>
+        <p style="padding-left: 20px">Dirección: <label>{{cliente.ubicacion}}</label></p>
+        <br/>
+        <p>4. DATOS DEL EQUIPO </p>
+        <table class="table table-bordered">      
+          <tr>
+              <td></td>
+              <td>CONSOLA | GENERADOR</td>                      
+              <td>TUBO</td>
+          </tr>
+          <tr>
+              <td>MARCA:</td>
+              <td>{{descri_equipo.marca}}</td>                      
+              <td>{{descri_equipo2.marca}}</td>
+          </tr>
+          <tr>
+              <td>MODELO:</td>
+              <td>{{descri_equipo.modelo}}</td>                      
+              <td>{{descri_equipo2.modelo}}</td>
+          </tr>
+          <tr>
+               <td>N° SERIE:</td>
+              <td>{{descri_equipo.nro_serie}}</td>                      
+              <td>{{descri_equipo2.nro_serie}}</td>
+          </tr>
+          <tr>
+               <td>Kv MAX:</td>
+              <td>{{descri_equipo.kvp_max}}</td>                      
+              <td>{{descri_equipo2.kvp_max}}</td>
+          </tr>
+          <tr>
+               <td>Ma/Mas MAX:</td>
+              <td>{{descri_equipo.max}}</td>                      
+              <td>{{descri_equipo2.max}}</td>
+          </tr>
+          <tr>
+               <td>AÑO DE FABRICACION:</td>
+              <td>{{descri_equipo.anio_fabri}}</td>                      
+              <td>{{descri_equipo2.anio_fabri}}</td>
+          </tr>
+          <tr>
+               <td>AÑO DE INSTALACION:</td>
+              <td>{{descri_equipo.anio_insta}}</td>                      
+              <td>{{descri_equipo2.anio_insta}}</td>
+          </tr>
+        </table>
+        <p>5. PROTOCOLO EMPLEADO: <label>Protocolo Español de Control de Calidad en Radiodiagnóstico</label></p>
+        <br/>
+        <p>6. AUTORIZACIÓN DE SERVICIOS: S0009.E3-IPEN/OTAN</p>
+
+        <div style="height: 40px"></div>
+
+        <div class="col-sm-12 bodFrmLogin" >   
+            <div class="col-sm-6" style="text-align: center">
+              <p><label>{{formato.realizado_por}}</label><label style="padding-left: 250px">Rita Peñaherrera Rengifo</label></p>
+              <p><label>Lic. IPEN N° 0022-11</label><label style="padding-left: 200px">Gerente General</label></p>  
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
 </form>
